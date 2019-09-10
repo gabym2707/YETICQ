@@ -48,8 +48,8 @@ namespace YETI
                         {
                             SouthBound s = new SouthBound();
                             s.fc_status = "A";
-                                s.fs_reference = ""; //WONumber.Text;
-                                s.fs_productionOrder = "";// WONumber.Text;
+                            s.fs_reference = ""; //WONumber.Text;
+                            s.fs_productionOrder = "";// WONumber.Text;
                             s.fs_partNumber= reader.GetString(1);
                             s.fs_description = reader.GetString(1);
                             s.fs_scheduleHsCode = reader.GetString(2);
