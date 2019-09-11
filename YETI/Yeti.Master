@@ -46,17 +46,16 @@
             <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
               <i class="fa fa-fw fa-file"></i>
               <span class="nav-link-text">
-                Work Order</span>
+                Production Order</span>
             </a>
             <ul class="sidenav-second-level collapse" id="collapseComponents">
               <li>
-                <a href="WorkOrderImport.aspx">New Work Order</a>
+                <a href="ProductionOrder.aspx">Production Order</a>
               </li>
-              <li>
-                <a href="WorkOrder/ImportWorkOrder.aspx">Work Order Import</a>
-              </li>
+             
             </ul>
           </li>
+
           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Northbound">
             <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
               <i class="fa fa-fw fa-file"></i>
@@ -65,28 +64,45 @@
             </a>
             <ul class="sidenav-second-level collapse" id="collapseExamplePages">
               <li>
-                <a href="login.html">New Order</a>
+                <a href="ScanPaint.aspx"> New NorthBound</a>
               </li>
-              <li>
-                <a href="register.html">Order Import</a>
-              </li>
-               
+                
             </ul>
           </li>
-          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Scanpaint">
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Work Order">
             <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
               <i class="fa fa-fw fa-paint-brush"></i>
               <span class="nav-link-text">
-                Scanpaint</span>
+                Work Order</span>
             </a>
             <ul class="sidenav-second-level collapse" id="collapseMulti">
               <li>
-                <a href="#">page1</a>
-              </li>
+                <a href="#">New Work Order</a>
+              </li> 
               <li>
-                <a href="#">page2</a>
+                <a href="#">Work Orders</a>
               </li>
-              
+            </ul>
+          </li>
+             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Masters">
+            <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2" data-parent="#exampleAccordion">
+              <i class="fa fa-fw fa-address-card-o"></i>
+              <span class="nav-link-text">
+               Masters</span>
+            </a>
+            <ul class="sidenav-second-level collapse" id="collapseMulti2">
+              <li>
+                <a href="MExports.aspx">Exports Master</a>
+              </li> 
+              <li>
+                <a href="MImports.aspx">Imports Masters</a>
+              </li>
+                <li>
+                <a href="MShippers.aspx">Shippers Masters</a>
+              </li>
+                <li>
+                <a href="MshipsTo.aspx">Ship's To Masters</a>
+              </li>
             </ul>
           </li>
            

@@ -135,6 +135,7 @@
   <ItemGroup>
     <Content Include="Inicio.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="MExports.aspx" />
     <Content Include="ScanPaint.aspx" />
     <Content Include="Web.config" />
     <Content Include="YETIDM.Context.tt">
@@ -149,6 +150,18 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cqc_exports.cs">
+      <DependentUpon>YETIDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cqc_imports.cs">
+      <DependentUpon>YETIDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cqc_shippers.cs">
+      <DependentUpon>YETIDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cqc_shipto.cs">
+      <DependentUpon>YETIDM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -162,6 +175,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MExports.aspx.cs">
+      <DependentUpon>MExports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MExports.aspx.designer.cs">
+      <DependentUpon>MExports.aspx</DependentUpon>
     </Compile>
     <Compile Include="NorthBound.cs">
       <DependentUpon>YETIDM.tt</DependentUpon>

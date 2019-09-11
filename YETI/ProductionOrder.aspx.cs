@@ -14,7 +14,20 @@ namespace YETI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!IsPostBack)
+            {
+                using (var context = new YETIEntities())
+                {
+                    ddlsexport.DataSource = context.cqc_exports.Where(c=> c.ci_id >=1).ToList();
+                    ddlsexport.DataBind();
+                    ddlsimport.DataSource = context.cqc_imports.ToList();
+                    ddlsimport.DataBind();
+                    ddlsShippers.DataSource = context.cqc_shippers.ToList();
+                    ddlsShippers.DataBind();
+                    ddlsShipTo.DataSource = context.cqc_shipto.ToList();
+                    ddlsShipTo.DataBind();
+                }
+            }
         }
 
         protected void btnUpload_Click(object sender, EventArgs e)

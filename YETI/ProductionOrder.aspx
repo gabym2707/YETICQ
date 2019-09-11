@@ -5,33 +5,33 @@
      <div class="row">
          <div class="col-6">
              Export of records:<br />
-            <asp:DropDownList ID="ddlsexport" runat="server" CssClass="form-control-sm"></asp:DropDownList>
+            <asp:DropDownList ID="ddlsexport" runat="server" CssClass="form-control-sm" DataTextField="cs_nombre" DataValueField="ci_id"></asp:DropDownList>
          </div>
            <div class="col-6">
-             Import of records:<br />
-            <asp:DropDownList ID="ddlsimport" runat="server" CssClass="form-control-sm"></asp:DropDownList>
+            Import of records:<br />
+            <asp:DropDownList ID="ddlsimport" runat="server" CssClass="form-control-sm" DataTextField="cs_nombre" DataValueField="ci_id"></asp:DropDownList>
          </div>
          </div>
     <div class="row">
          <div class="col-6">
-             Shipper:<br />
-            <asp:DropDownList ID="ddlsShippers" runat="server" CssClass="form-control-sm"></asp:DropDownList>
+             <br />Shipper:<br />
+            <asp:DropDownList ID="ddlsShippers" runat="server" CssClass="form-control-sm" DataTextField="cs_nombre" DataValueField="ci_id"></asp:DropDownList>
          </div>
            <div class="col-6">
-             Ship To:<br />
-            <asp:DropDownList ID="ddlsShipTo" runat="server" CssClass="form-control-sm"></asp:DropDownList>
+             <br />Ship To:<br />
+            <asp:DropDownList ID="ddlsShipTo" runat="server" CssClass="form-control-sm" DataTextField="cs_nombre" DataValueField="ci_id"></asp:DropDownList>
          </div>
         </div>
     <div class="row">
           <div class="col-2">
-              Currency:<br />
+             <br /> Currency:<br />
             <asp:DropDownList ID="ddlsCurrency" runat="server" CssClass="form-control-sm"></asp:DropDownList>
          </div>
         
-         <div class="col-sm-4">Template: <br />
+         <div class="col-sm-4"><br />Template: <br />
              <asp:FileUpload ID="ImportSB" runat="server" />
          </div>
-         <div class="col-sm-4">Commercial Invoice: <br />
+         <div class="col-sm-4"><br />Commercial Invoice: <br />
              <asp:FileUpload ID="FileUpload1" runat="server" />
          </div>
          
