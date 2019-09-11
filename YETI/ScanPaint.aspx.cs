@@ -22,8 +22,8 @@ namespace YETI
             if (ImportSB.HasFile)
             {
                 
-                if (File.Exists(Server.MapPath("~/" + ImportSB.FileName)))
-                    File.Delete(Server.MapPath("~/" + ImportSB.FileName));
+                if (File.Exists(Server.MapPath("~/NorthBound/" + ImportSB.FileName)))
+                    File.Delete(Server.MapPath("~/NorthBound/" + ImportSB.FileName));
 
                 ImportSB.SaveAs(Server.MapPath("~/NorthBound/" + ImportSB.FileName));
                 
