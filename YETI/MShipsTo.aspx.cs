@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace YETI
 {
-    public partial class MExports : System.Web.UI.Page
+    public partial class MShipsTo : System.Web.UI.Page
     {
         YETIEntities context = new YETIEntities();
         protected void Page_Load(object sender, EventArgs e)
@@ -16,23 +16,21 @@ namespace YETI
             {
                 using (var context = new YETIEntities())
                 {
-                    gvNombres.DataSource = context.cqc_exports.ToList();
-                    gvNombres.DataBind();
-                    //ddlsexport.DataSource = context.cqc_exports.Where(c => c.ci_id >= 1).ToList();
-                    //ddlsexport.DataBind();
+                    gvNombres.DataSource = context.cqc_shipto.ToList();
+                    gvNombres.DataBind();                   
                 }
             }
         }
 
         protected void add_Click(object sender, EventArgs e)
         {
-            context.cqc_exports.Add(new cqc_exports
+            context.cqc_shipto.Add(new cqc_shipto
             {
-                cs_nombre = txtExporter.Text
+                cs_nombre = txtShipTo.Text
             });
             context.SaveChanges();
             limpiarTextBox();
-            gvNombres.DataSource = context.cqc_exports.ToList();
+            gvNombres.DataSource = context.cqc_shipto.ToList();
             gvNombres.DataBind();
         }
 
@@ -46,7 +44,7 @@ namespace YETI
                 {
                     TextBox text = c as TextBox;
                     text.Text = "";
-                }
+                }                
             }
 
         }

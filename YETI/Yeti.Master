@@ -15,7 +15,7 @@
 
     <meta name="description" content="">
     <meta name="author" content=""> 
-
+    <link href="https://www.yeti.com/on/demandware.static/Sites-Yeti_US-Site/-/default/dwd9ecb7ac/images/favicon.ico" rel="shortcut icon" />
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -95,13 +95,13 @@
                 <a href="MExports.aspx">Exports Master</a>
               </li> 
               <li>
-                <a href="MImports.aspx">Imports Masters</a>
+                <a href="MImporters.aspx">Imports Masters</a>
               </li>
                 <li>
                 <a href="MShippers.aspx">Shippers Masters</a>
               </li>
                 <li>
-                <a href="MshipsTo.aspx">Ship's To Masters</a>
+                <a href="MShipsTo.aspx">Ship's To Masters</a>
               </li>
             </ul>
           </li>

@@ -1,8 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Yeti.Master" AutoEventWireup="true" CodeBehind="ScanPaint.aspx.cs" Inherits="YETI.ScanPaint" %>
+﻿<%@ Page Title="NorthBound" Language="C#" MasterPageFile="~/Yeti.Master" AutoEventWireup="true" CodeBehind="ScanPaint.aspx.cs" Inherits="YETI.ScanPaint" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     
+     <div class="row">
+        <div class="col-sm-12"><h3>ScanPaint's NorthBounds</h3></div>
+    </div>
     <div class="row">
          
           <div class="col-3">
