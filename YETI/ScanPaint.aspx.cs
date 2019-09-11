@@ -22,8 +22,8 @@ namespace YETI
             if (ImportSB.HasFile)
             {
                 
-                if (File.Exists(Server.MapPath("~/" + ImportSB.FileName)))
-                    File.Delete(Server.MapPath("~/" + ImportSB.FileName));
+                if (File.Exists(Server.MapPath("~/NorthBound/" + ImportSB.FileName)))
+                    File.Delete(Server.MapPath("~/NorthBound/" + ImportSB.FileName));
 
                 ImportSB.SaveAs(Server.MapPath("~/NorthBound/" + ImportSB.FileName));
                 
@@ -57,6 +57,7 @@ namespace YETI
                                 s.fs_importer = "YETI Coolers, LLC";
                                 s.fi_shipper = 1;
                                 s.fs_shipper = "Maquila Solutions c/o Scanpaint SA de CV";
+                                s.fi_shipTo = 1;
                                 s.fs_shipTo = reader.GetString(7);
                                 s.fs_incoterm = "EXW";
                                 s.fdt_shipDate = reader.GetDateTime(9);
@@ -102,6 +103,7 @@ namespace YETI
                     }
                 }
             }
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalMensajes();", true);
         }
     }
 }
