@@ -137,6 +137,7 @@
     <Content Include="Inicio.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MExports.aspx" />
+    <Content Include="MSKUs.aspx" />
     <Content Include="MImporters.aspx" />
     <Content Include="MShippers.aspx" />
     <Content Include="MShipsTo.aspx" />
@@ -186,6 +187,13 @@
     </Compile>
     <Compile Include="MExports.aspx.designer.cs">
       <DependentUpon>MExports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MSKUs.aspx.cs">
+      <DependentUpon>MSKUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MSKUs.aspx.designer.cs">
+      <DependentUpon>MSKUs.aspx</DependentUpon>
     </Compile>
     <Compile Include="MImporters.aspx.cs">
       <DependentUpon>MImporters.aspx</DependentUpon>

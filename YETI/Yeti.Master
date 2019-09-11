@@ -103,6 +103,12 @@
                 <li>
                 <a href="MShipsTo.aspx">Ship's To Masters</a>
               </li>
+                <li>
+                <a href="MSKUs.aspx">SKU's </a>
+              </li>
+                <li>
+                <a href="MPaint.aspx">Painting</a>
+              </li>
             </ul>
           </li>
            

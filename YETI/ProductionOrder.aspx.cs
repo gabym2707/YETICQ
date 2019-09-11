@@ -94,21 +94,7 @@ namespace YETI
                     }
                 }
             }
-            /*string path = Path.GetFileName(ImportSB.FileName);
-            path = path.Replace(" ", "");
-            ImportSB.SaveAs(Server.MapPath("~/") + path);
-            String ExcelPath = Server.MapPath("~/") + path;
-            OleDbConnection mycon = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + ExcelPath + ";Extended Properties='Excel 8.0;HDR=YES;IMEX=1;';");
-            mycon.Open();
-            OleDbCommand cmd = new OleDbCommand("select * from [SB$]", mycon);
-            OleDbDataAdapter da = new OleDbDataAdapter();
-            da.SelectCommand = cmd;
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            GridView1.DataSource = ds.Tables[0];
-            GridView1.DataBind();
-            mycon.Close();*/
-            //Label3.Text = "Excel File Has Been Saved and Data Captured";
+           
         }
     }
 }
