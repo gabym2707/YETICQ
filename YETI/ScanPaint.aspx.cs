@@ -49,7 +49,7 @@ namespace YETI
                                 s.fc_status = "A";
                                 s.fdt_invoiceDate = reader.GetDateTime(0);
                                 s.fs_invoiceNumber = reader.GetString(1);
-                                s.fs_trailerNumber = reader.GetString(2);
+                                try { s.fs_trailerNumber = reader.GetString(2); } catch { s.fs_trailerNumber = reader.GetDouble(2).ToString(); }
                                 s.fs_sealNumber = reader.GetString(3);
                                 s.fi_exportOfRecord = 1;
                                 s.fs_exportOfRecord = "Maquila Solutions Mexico SA de CV";
@@ -61,19 +61,19 @@ namespace YETI
                                 s.fs_incoterm = "EXW";
                                 s.fdt_shipDate = reader.GetDateTime(9);
                                 s.fs_shipVia = reader.GetString(10);
-                                s.fs_SKU = reader.GetString(11);
+                                try { s.fs_SKU = reader.GetString(11); } catch { s.fs_SKU = reader.GetDouble(11).ToString(); }
                                 s.fs_descYeti = reader.GetString(12);
                                 s.fs_hsCodeYeti = reader.GetString(13);
                                 s.fs_COOYeti = "CN";
-                                s.fi_qtyYeti = reader.GetInt32(15);
+                                s.fi_qtyYeti = int.Parse(reader.GetDouble(15).ToString());
                                 s.fd_unitPriceYeti = reader.GetDecimal(16);
                                 s.fd_extPriceYeti = reader.GetDecimal(17);
                                 s.fs_descSP = reader.GetString(18);
                                 s.fs_hsCodeSP = reader.GetString(19);
                                 s.fs_COOSP= "CN";
                                 s.fd_unitPriceSP = reader.GetDecimal(21);
-                                s.fs_WONumber = reader.GetString(22);
-                                s.fs_upsTracking = reader.GetString(23);
+                                try { s.fs_WONumber = reader.GetString(22); } catch { s.fs_WONumber = reader.GetDouble(22).ToString(); }
+                                try { s.fs_upsTracking = reader.GetString(23); } catch { s.fs_upsTracking = reader.GetDouble(23).ToString(); }
                                 s.fd_extPriceSP = reader.GetDecimal(24);
                                 s.fd_totalEnteredValue = reader.GetDecimal(25);
                                 s.fd_totalWeight = reader.GetDouble(26);
