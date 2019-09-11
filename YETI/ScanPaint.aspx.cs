@@ -57,6 +57,7 @@ namespace YETI
                                 s.fs_importer = "YETI Coolers, LLC";
                                 s.fi_shipper = 1;
                                 s.fs_shipper = "Maquila Solutions c/o Scanpaint SA de CV";
+                                s.fi_shipTo = 1;
                                 s.fs_shipTo = reader.GetString(7);
                                 s.fs_incoterm = "EXW";
                                 s.fdt_shipDate = reader.GetDateTime(9);
@@ -66,18 +67,18 @@ namespace YETI
                                 s.fs_hsCodeYeti = reader.GetString(13);
                                 s.fs_COOYeti = "CN";
                                 s.fi_qtyYeti = int.Parse(reader.GetDouble(15).ToString());
-                                s.fd_unitPriceYeti = reader.GetDecimal(16);
-                                s.fd_extPriceYeti = reader.GetDecimal(17);
+                                s.fd_unitPriceYeti = decimal.Parse(reader.GetDouble(16).ToString());
+                                s.fd_extPriceYeti = decimal.Parse(reader.GetDouble(17).ToString());
                                 s.fs_descSP = reader.GetString(18);
                                 s.fs_hsCodeSP = reader.GetString(19);
                                 s.fs_COOSP= "CN";
-                                s.fd_unitPriceSP = reader.GetDecimal(21);
+                                s.fd_unitPriceSP = decimal.Parse(reader.GetDouble(21).ToString());
                                 try { s.fs_WONumber = reader.GetString(22); } catch { s.fs_WONumber = reader.GetDouble(22).ToString(); }
                                 try { s.fs_upsTracking = reader.GetString(23); } catch { s.fs_upsTracking = reader.GetDouble(23).ToString(); }
-                                s.fd_extPriceSP = reader.GetDecimal(24);
-                                s.fd_totalEnteredValue = reader.GetDecimal(25);
+                                s.fd_extPriceSP = decimal.Parse(reader.GetDouble(24).ToString());
+                                s.fd_totalEnteredValue = decimal.Parse(reader.GetDouble(25).ToString());
                                 s.fd_totalWeight = reader.GetDouble(26);
-                                s.fd_totalAmount = reader.GetDecimal(27);
+                                s.fd_totalAmount = decimal.Parse(reader.GetDouble(27).ToString());
 
                                 if (s.fs_descSP == null)
                                 {
@@ -102,6 +103,7 @@ namespace YETI
                     }
                 }
             }
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalMensajes();", true);
         }
     }
 }
