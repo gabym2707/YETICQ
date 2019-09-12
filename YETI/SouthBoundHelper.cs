@@ -22,7 +22,7 @@ namespace YETI
                                 <img src='https://www.yeti.com/on/demandware.static/-/Sites/default/dweb462676/images/slot/landing/YETI-Logo-Social.png' width='200px'; height:'200px'/><br/><br/>
                                 <span style ='font-size:30px; font-weight:bold'>Commercial Invoice Notification</span> <br/>
                                 <span style ='font-size:30px'><b> </b></span><br/>
-                                <span style ='font-size:25px'>Please confirm that you received the commercial invoice for the NorthBound by clicking the button below</span> <span style='font-size:60px'>
+                                <span style ='font-size:25px'>Please confirm that you received the commercial invoice for the SouthBound by clicking the button below</span> <span style='font-size:60px'>
                                 </span >
                                 <br/><br />
                                 <div class='row'>
