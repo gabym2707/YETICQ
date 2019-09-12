@@ -32,7 +32,7 @@ namespace YETI
 
         protected void btnUpload_Click(object sender, EventArgs e)
         {
-            string filePath = "";
+            //string filePath = "";
             if (ImportSB.HasFile && ImportSB.FileName.Contains(".xls"))
             {
                 //UploadedFile file = layoutUpload.UploadedFiles[0];
