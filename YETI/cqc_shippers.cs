@@ -16,5 +16,7 @@ namespace YETI
     {
         public int ci_id { get; set; }
         public string cs_nombre { get; set; }
+        public string cs_address { get; set; }
+        public string cs_locacion { get; set; }
     }
 }

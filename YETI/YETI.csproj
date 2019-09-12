@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -131,6 +135,16 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Telerik.Web.Design, Version=2012.2.607.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Downloads\DEMOFINALSERVERFinal\DEMOFINALSERVER\DEMOFINALSERVER\DEMOFINAL\sistema\sistema\bin\Telerik.Web.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI">
+      <HintPath>..\..\..\..\..\Downloads\DEMOFINALSERVERFinal\DEMOFINALSERVER\DEMOFINALSERVER\DEMOFINAL\sistema\sistema\bin\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI.Skins">
+      <HintPath>..\..\..\..\..\Downloads\DEMOFINALSERVERFinal\DEMOFINALSERVER\DEMOFINALSERVER\DEMOFINAL\sistema\sistema\bin\Telerik.Web.UI.Skins.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -142,6 +156,7 @@
     <Content Include="MShippers.aspx" />
     <Content Include="MShipsTo.aspx" />
     <Content Include="ScanPaint.aspx" />
+    <Content Include="SouthBoundList.aspx" />
     <Content Include="Web.config" />
     <Content Include="YETIDM.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -165,6 +180,9 @@
       <DependentUpon>YETIDM.tt</DependentUpon>
     </Compile>
     <Compile Include="cqc_shipto.cs">
+      <DependentUpon>YETIDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cqc_skus.cs">
       <DependentUpon>YETIDM.tt</DependentUpon>
     </Compile>
     <Compile Include="Inicio.aspx.cs">
@@ -220,6 +238,12 @@
       <DependentUpon>YETIDM.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\RSouthbound.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RSouthbound.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ScanPaint.aspx.cs">
       <DependentUpon>ScanPaint.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -227,15 +251,28 @@
     <Compile Include="ScanPaint.aspx.designer.cs">
       <DependentUpon>ScanPaint.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SouthBound.cs">
-      <DependentUpon>YETIDM.tt</DependentUpon>
-    </Compile>
     <Compile Include="ProductionOrder.aspx.cs">
       <DependentUpon>ProductionOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ProductionOrder.aspx.designer.cs">
       <DependentUpon>ProductionOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SouthBound.cs">
+      <DependentUpon>YETIDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Southbound1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Southbound.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SouthBoundList.aspx.cs">
+      <DependentUpon>SouthBoundList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SouthBoundList.aspx.designer.cs">
+      <DependentUpon>SouthBoundList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Yeti.Master.cs">
       <DependentUpon>Yeti.Master</DependentUpon>
@@ -283,9 +320,21 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NorthBound\" />
+    <Folder Include="SouthBound\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\RSouthbound.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RSouthbound.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Southbound.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Southbound1.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

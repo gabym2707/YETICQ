@@ -25,11 +25,13 @@ namespace YETI
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<SouthBound> SouthBounds { get; set; }
         public virtual DbSet<cqc_exports> cqc_exports { get; set; }
         public virtual DbSet<cqc_imports> cqc_imports { get; set; }
         public virtual DbSet<cqc_shippers> cqc_shippers { get; set; }
         public virtual DbSet<cqc_shipto> cqc_shipto { get; set; }
         public virtual DbSet<NorthBound> NorthBounds { get; set; }
+        public virtual DbSet<cqc_skus> cqc_skus { get; set; }
+        public virtual DbSet<SouthBound> SouthBounds { get; set; }
+        public virtual DbSet<MasterInvoiceSB> MasterInvoiceSBs { get; set; }
     }
 }

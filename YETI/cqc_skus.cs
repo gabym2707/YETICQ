@@ -12,13 +12,14 @@ namespace YETI
     using System;
     using System.Collections.Generic;
     
-    public partial class cqc_shipto
+    public partial class cqc_skus
     {
         public int ci_id { get; set; }
-        public string cs_nombre { get; set; }
-        public string cs_address { get; set; }
-        public string cs_locacion { get; set; }
-        public string cs_rfc { get; set; }
-        public string immex { get; set; }
+        public string cs_sku { get; set; }
+        public string cs_plant { get; set; }
+        public string cs_description { get; set; }
+        public string cs_comodityCode { get; set; }
+        public Nullable<decimal> cs_cost { get; set; }
+        public string cs_materialGroup { get; set; }
     }
 }

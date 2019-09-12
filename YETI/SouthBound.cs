@@ -16,8 +16,14 @@ namespace YETI
     {
         public int fi_id { get; set; }
         public string fc_status { get; set; }
+        public string fs_invoice { get; set; }
+        public string fs_trucker { get; set; }
+        public string fs_tracking { get; set; }
+        public Nullable<System.DateTime> fd_date { get; set; }
         public string fs_productionOrder { get; set; }
         public string fs_reference { get; set; }
+        public string fs_incoterms { get; set; }
+        public Nullable<System.DateTime> fd_shipDate { get; set; }
         public Nullable<int> fi_exportRecords { get; set; }
         public string fs_exportRecords { get; set; }
         public Nullable<int> fi_importRecords { get; set; }
