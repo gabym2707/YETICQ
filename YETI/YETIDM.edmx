@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="YETIDM.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+    <Schema Namespace="YETIDM.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="cqc_exports">
           <Key>
             <PropertyRef Name="ci_id" />
@@ -98,6 +98,15 @@
           <Property Name="fd_totalWeight" Type="float" />
           <Property Name="fd_totalAmount" Type="money" />
         </EntityType>
+        <EntityType Name="NorthBoundMails">
+          <Key>
+            <PropertyRef Name="ci_id" />
+          </Key>
+          <Property Name="ci_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cs_nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cs_correo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cb_active" Type="bit" />
+        </EntityType>
         <EntityType Name="SouthBound">
           <Key>
             <PropertyRef Name="fi_id" />
@@ -131,6 +140,15 @@
           <Property Name="fd_exitPrice" Type="money" />
           <Property Name="fs_moneda" Type="varchar" MaxLength="6" />
         </EntityType>
+        <EntityType Name="SouthBoundMails">
+          <Key>
+            <PropertyRef Name="ci_id" />
+          </Key>
+          <Property Name="ci_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cs_nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cs_correo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cb_active" Type="bit" />
+        </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="MasterInvoiceSB">
@@ -152,14 +170,16 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
           <Property Name="fd_exitPrice" Type="money" />
         </EntityType>
         <EntityContainer Name="YETIDMStoreContainer">
-          <EntitySet Name="cqc_exports" EntityType="Self.cqc_exports" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="cqc_imports" EntityType="Self.cqc_imports" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="cqc_shippers" EntityType="Self.cqc_shippers" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="cqc_shipto" EntityType="Self.cqc_shipto" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="cqc_skus" EntityType="Self.cqc_skus" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="NorthBound" EntityType="Self.NorthBound" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="SouthBound" EntityType="Self.SouthBound" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="MasterInvoiceSB" EntityType="Self.MasterInvoiceSB" store:Type="Views" store:Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+          <EntitySet Name="cqc_exports" EntityType="Self.cqc_exports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cqc_imports" EntityType="Self.cqc_imports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cqc_shippers" EntityType="Self.cqc_shippers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cqc_shipto" EntityType="Self.cqc_shipto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cqc_skus" EntityType="Self.cqc_skus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NorthBound" EntityType="Self.NorthBound" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NorthBoundMails" EntityType="Self.NorthBoundMails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SouthBound" EntityType="Self.SouthBound" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SouthBoundMails" EntityType="Self.SouthBoundMails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MasterInvoiceSB" EntityType="Self.MasterInvoiceSB" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [MasterInvoiceSB].[fc_status] AS [fc_status], 
     [MasterInvoiceSB].[fs_invoice] AS [fs_invoice], 
@@ -178,8 +198,8 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="YETIDM" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-        <EntityContainer Name="YETIEntities" annotation:LazyLoadingEnabled="true">
+      <Schema Namespace="YETIDM" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="YETIEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <EntitySet Name="cqc_exports" EntityType="YETIDM.cqc_exports" />
           <EntitySet Name="cqc_imports" EntityType="YETIDM.cqc_imports" />
           <EntitySet Name="cqc_shippers" EntityType="YETIDM.cqc_shippers" />
@@ -188,12 +208,14 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
           <EntitySet Name="cqc_skus" EntityType="YETIDM.cqc_skus" />
           <EntitySet Name="SouthBounds" EntityType="YETIDM.SouthBound" />
           <EntitySet Name="MasterInvoiceSBs" EntityType="YETIDM.MasterInvoiceSB" />
+          <EntitySet Name="NorthBoundMails" EntityType="YETIDM.NorthBoundMail" />
+          <EntitySet Name="SouthBoundMails" EntityType="YETIDM.SouthBoundMail" />
         </EntityContainer>
         <EntityType Name="cqc_exports">
           <Key>
             <PropertyRef Name="ci_id" />
           </Key>
-          <Property Name="ci_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ci_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="cs_nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="cs_address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="cs_locacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -204,7 +226,7 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
           <Key>
             <PropertyRef Name="ci_id" />
           </Key>
-          <Property Name="ci_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ci_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="cs_nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="cs_address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="cs_locacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -215,7 +237,7 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
           <Key>
             <PropertyRef Name="ci_id" />
           </Key>
-          <Property Name="ci_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ci_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="cs_nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="cs_address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="cs_locacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -224,7 +246,7 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
           <Key>
             <PropertyRef Name="ci_id" />
           </Key>
-          <Property Name="ci_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ci_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="cs_nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="cs_address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="cs_locacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -235,7 +257,7 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
           <Key>
             <PropertyRef Name="fi_id" />
           </Key>
-          <Property Name="fi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="fc_status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="fdt_invoiceDate" Type="DateTime" Precision="0" />
           <Property Name="fs_invoiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -274,7 +296,7 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
           <Key>
             <PropertyRef Name="ci_id" />
           </Key>
-          <Property Name="ci_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ci_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="cs_sku" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="cs_plant" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="cs_description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
@@ -286,7 +308,7 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
           <Key>
             <PropertyRef Name="fi_id" />
           </Key>
-          <Property Name="fi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="fc_status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="fs_invoice" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="fs_trucker" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
@@ -333,11 +355,29 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
           <Property Name="fs_totalWightLbs" Type="Double" />
           <Property Name="fd_exitPrice" Type="Decimal" Precision="19" Scale="4" />
         </EntityType>
+        <EntityType Name="NorthBoundMail">
+          <Key>
+            <PropertyRef Name="ci_id" />
+          </Key>
+          <Property Name="ci_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cs_nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cs_correo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cb_active" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="SouthBoundMail">
+          <Key>
+            <PropertyRef Name="ci_id" />
+          </Key>
+          <Property Name="ci_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cs_nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cs_correo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cb_active" Type="Boolean" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="YETIDMStoreContainer" CdmEntityContainer="YETIEntities">
           <EntitySetMapping Name="cqc_exports">
             <EntityTypeMapping TypeName="YETIDM.cqc_exports">
@@ -486,6 +526,26 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
                 <ScalarProperty Name="fs_trucker" ColumnName="fs_trucker" />
                 <ScalarProperty Name="fs_invoice" ColumnName="fs_invoice" />
                 <ScalarProperty Name="fc_status" ColumnName="fc_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NorthBoundMails">
+            <EntityTypeMapping TypeName="YETIDM.NorthBoundMail">
+              <MappingFragment StoreEntitySet="NorthBoundMails">
+                <ScalarProperty Name="cb_active" ColumnName="cb_active" />
+                <ScalarProperty Name="cs_correo" ColumnName="cs_correo" />
+                <ScalarProperty Name="cs_nombre" ColumnName="cs_nombre" />
+                <ScalarProperty Name="ci_id" ColumnName="ci_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SouthBoundMails">
+            <EntityTypeMapping TypeName="YETIDM.SouthBoundMail">
+              <MappingFragment StoreEntitySet="SouthBoundMails">
+                <ScalarProperty Name="cb_active" ColumnName="cb_active" />
+                <ScalarProperty Name="cs_correo" ColumnName="cs_correo" />
+                <ScalarProperty Name="cs_nombre" ColumnName="cs_nombre" />
+                <ScalarProperty Name="ci_id" ColumnName="ci_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
