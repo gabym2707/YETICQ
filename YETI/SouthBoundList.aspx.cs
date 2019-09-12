@@ -60,11 +60,22 @@ namespace YETI
 
                     var t = context.SouthBounds.Where(w => w.fs_productionOrder == PO & w.fc_status=="A").ToList();
                     cryRpt.Database.Tables["SouthBound"].SetDataSource(t);
+
                     var exportid = context.SouthBounds.Where(w => w.fs_productionOrder == PO & w.fc_status == "A").Select(s => s.fi_exportRecords).FirstOrDefault();
                     var importid = context.SouthBounds.Where(w => w.fs_productionOrder == PO & w.fc_status == "A").Select(s => s.fi_importRecords).FirstOrDefault();
                     var shipperid = context.SouthBounds.Where(w => w.fs_productionOrder == PO & w.fc_status == "A").Select(s => s.fi_shipper).FirstOrDefault();
                     var shiptoid = context.SouthBounds.Where(w => w.fs_productionOrder == PO & w.fc_status == "A").Select(s => s.fi_shipTo).FirstOrDefault();
 
+                    var ex =  context.cqc_exports.Where(w => w.ci_id == exportid).ToList();
+                    var im = context.cqc_imports.Where(w => w.ci_id == importid).ToList();
+                    var sp = context.cqc_shippers.Where(w => w.ci_id == shipperid).ToList();
+                    var st = context.cqc_shipto.Where(w => w.ci_id == shiptoid).ToList();
+                    var master= context.MasterInvoiceSBs.Where(w => w.fs_productionOrder == PO).ToList();
+                    cryRpt.Database.Tables["cqc_exports"].SetDataSource(ex);
+                    cryRpt.Database.Tables["cqc_imports"].SetDataSource(im);
+                    cryRpt.Database.Tables["cqc_shippers"].SetDataSource(sp);
+                    cryRpt.Database.Tables["cqc_shipto"].SetDataSource(st);
+                    cryRpt.Database.Tables["MasterInvoiceSBs"].SetDataSource(master);
 
                     crystalReportViewer1.ReportSource = cryRpt;
 
