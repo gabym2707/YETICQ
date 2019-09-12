@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetMSB" targetNamespace="http://tempuri.org/DataSetMSB.xsd" xmlns:mstns="http://tempuri.org/DataSetMSB.xsd" xmlns="http://tempuri.org/DataSetMSB.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetMSB" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetMSB" msprop:Generator_UserDSName="DataSetMSB">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable2" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_TablePropName="DataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowClassName="DataTable2Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="fs_status" msprop:Generator_ColumnVarNameInTable="columnfs_status" msprop:Generator_ColumnPropNameInRow="fs_status" msprop:Generator_ColumnPropNameInTable="fs_statusColumn" msprop:Generator_UserColumnName="fs_status" type="xs:string" minOccurs="0" />
+              <xs:element name="fs_invoice" msprop:Generator_ColumnVarNameInTable="columnfs_invoice" msprop:Generator_ColumnPropNameInRow="fs_invoice" msprop:Generator_ColumnPropNameInTable="fs_invoiceColumn" msprop:Generator_UserColumnName="fs_invoice" type="xs:string" minOccurs="0" />
+              <xs:element name="fs_trucker" msprop:Generator_ColumnVarNameInTable="columnfs_trucker" msprop:Generator_ColumnPropNameInRow="fs_trucker" msprop:Generator_ColumnPropNameInTable="fs_truckerColumn" msprop:Generator_UserColumnName="fs_trucker" type="xs:string" minOccurs="0" />
+              <xs:element name="fs_tracking" msprop:Generator_ColumnVarNameInTable="columnfs_tracking" msprop:Generator_ColumnPropNameInRow="fs_tracking" msprop:Generator_ColumnPropNameInTable="fs_trackingColumn" msprop:Generator_UserColumnName="fs_tracking" type="xs:string" minOccurs="0" />
+              <xs:element name="fd_date" msprop:Generator_ColumnVarNameInTable="columnfd_date" msprop:Generator_ColumnPropNameInRow="fd_date" msprop:Generator_ColumnPropNameInTable="fd_dateColumn" msprop:Generator_UserColumnName="fd_date" type="xs:string" minOccurs="0" />
+              <xs:element name="fs_productionOrder" msprop:Generator_ColumnVarNameInTable="columnfs_productionOrder" msprop:Generator_ColumnPropNameInRow="fs_productionOrder" msprop:Generator_ColumnPropNameInTable="fs_productionOrderColumn" msprop:Generator_UserColumnName="fs_productionOrder" type="xs:string" minOccurs="0" />
+              <xs:element name="fs_modena" msprop:Generator_ColumnVarNameInTable="columnfs_modena" msprop:Generator_ColumnPropNameInRow="fs_modena" msprop:Generator_ColumnPropNameInTable="fs_modenaColumn" msprop:Generator_UserColumnName="fs_modena" type="xs:string" minOccurs="0" />
+              <xs:element name="fs_totalWeightKgs" msprop:Generator_ColumnVarNameInTable="columnfs_totalWeightKgs" msprop:Generator_ColumnPropNameInRow="fs_totalWeightKgs" msprop:Generator_ColumnPropNameInTable="fs_totalWeightKgsColumn" msprop:Generator_UserColumnName="fs_totalWeightKgs" type="xs:string" minOccurs="0" />
+              <xs:element name="fs_totalWeightLbs" msprop:Generator_ColumnVarNameInTable="columnfs_totalWeightLbs" msprop:Generator_ColumnPropNameInRow="fs_totalWeightLbs" msprop:Generator_ColumnPropNameInTable="fs_totalWeightLbsColumn" msprop:Generator_UserColumnName="fs_totalWeightLbs" type="xs:string" minOccurs="0" />
+              <xs:element name="fd_exitPrice" msprop:Generator_ColumnVarNameInTable="columnfd_exitPrice" msprop:Generator_ColumnPropNameInRow="fd_exitPrice" msprop:Generator_ColumnPropNameInTable="fd_exitPriceColumn" msprop:Generator_UserColumnName="fd_exitPrice" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

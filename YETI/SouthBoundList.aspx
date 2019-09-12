@@ -10,7 +10,7 @@
       <div class="row">
         
         <div class="col-sm-12">    
-            <telerik:RadGrid runat="server" ID="rgSouthBoundList" Skin="MetroTouch" AutoGenerateColumns="false" OnItemCommand="rgSouthBoundList_ItemCommand">
+            <telerik:RadGrid runat="server" ID="rgSouthBoundList" Skin="Material" AutoGenerateColumns="false" OnItemCommand="rgSouthBoundList_ItemCommand">
                 <MasterTableView>
                     <Columns>
                         <telerik:GridTemplateColumn HeaderText="Production Order">
@@ -28,6 +28,7 @@
                         <telerik:GridTemplateColumn HeaderText="Trucker">
                             <ItemTemplate><%#Eval("fs_trucker") %></ItemTemplate>
                         </telerik:GridTemplateColumn>
+                        
                         <telerik:GridTemplateColumn HeaderText="Tracking">
                             <ItemTemplate><%#Eval("fs_tracking") %></ItemTemplate>
                         </telerik:GridTemplateColumn>
