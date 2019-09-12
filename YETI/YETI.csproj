@@ -242,6 +242,7 @@
     <Compile Include="NorthBound.cs">
       <DependentUpon>YETIDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="NorthBoundHelper.cs" />
     <Compile Include="NorthBoundMail.cs">
       <DependentUpon>YETIDM.tt</DependentUpon>
     </Compile>
@@ -282,6 +283,7 @@
       <DependentUpon>Southbound.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="SouthBoundHelper.cs" />
     <Compile Include="SouthBoundList.aspx.cs">
       <DependentUpon>SouthBoundList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
