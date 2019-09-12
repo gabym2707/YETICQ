@@ -1,7 +1,10 @@
 ﻿<%@ Page Title="SouthBound Mails" Language="C#" MasterPageFile="~/Yeti.Master" AutoEventWireup="true" CodeBehind="SouthBoundMails.aspx.cs" Inherits="YETI.SouthBoundMails" %>
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        <asp:ScriptManager runat="server"></asp:ScriptManager>
     <div class="row">
         <div class="col-sm-12"><h3>SouthBound Mails</h3></div>
     </div>
@@ -15,37 +18,43 @@
     <div class="row">
           <div class="col-sm-12">
               <br />
-             <asp:GridView runat="server" ID="gvNombres" AutoGenerateColumns="false" CssClass="table-sm table table-responsive" HeaderStyle-BackColor="#cfd6e5" BorderColor="#00263e" HeaderStyle-BorderColor="#00263e" GridLines="None">
-                 <Columns>
-                     <asp:TemplateField HeaderText="Name">
+             <telerik:RadGrid runat="server" ID="rgMails" AutoGenerateColumns="false" Skin="Metro" GridLines="None"
+                  OnItemDataBound="rgMails_ItemDataBound">
+                  <MasterTableView>
+                      <Columns>
+                     <telerik:GridTemplateColumn Visible="false" UniqueName="ci_id" DataField="ci_id">
+                         <ItemTemplate>
+                             <%# Eval("ci_id") %>
+                         </ItemTemplate>
+                     </telerik:GridTemplateColumn>
+                     <telerik:GridTemplateColumn HeaderText="Name" UniqueName="cs_nombre" DataField="cs_nombre">
                          <ItemTemplate>
                              <%# Eval("cs_nombre") %>
                          </ItemTemplate>
-                     </asp:TemplateField>
-                     <asp:TemplateField HeaderText="Mail">
+                     </telerik:GridTemplateColumn >
+                     <telerik:GridTemplateColumn HeaderText="Mail" UniqueName="cs_correo" DataField="cs_correo">
                          <ItemTemplate>
                              <%# Eval("cs_correo") %>
                          </ItemTemplate>
-                     </asp:TemplateField>
-                     <asp:TemplateField HeaderText="Active">
-                         <ItemTemplate>
-                             <%# Eval("cb_active") %>
-                         </ItemTemplate>
-                    </asp:TemplateField>
-                     <asp:TemplateField>
+                     </telerik:GridTemplateColumn>
+                     <telerik:GridBoundColumn HeaderText="Active" UniqueName="cb_active" DataField="cb_active" DataType="System.Boolean">
+                        
+                    </telerik:GridBoundColumn>
+                     <telerik:GridTemplateColumn UniqueName="Deactivate">
                          <ItemTemplate>
                             <asp:LinkButton runat="server" ID="btnDeactivate" OnClick="btnDeactivate_Click" CssClass="btn btn-warning btn-sm" Text="Deactivate"
                                 CommandArgument='<%# Eval("ci_id")+"*" %>'></asp:LinkButton>
                          </ItemTemplate>                         
-                    </asp:TemplateField>
-                     <asp:TemplateField>
+                    </telerik:GridTemplateColumn>
+                     <telerik:GridTemplateColumn UniqueName="Reactivate">
                          <ItemTemplate>
                             <asp:LinkButton runat="server" ID="btnReactivate" OnClick="btnReactivate_Click" CssClass="btn btn-success btn-sm" Text="Reactivate"
                                 CommandArgument='<%# Eval("ci_id")+"*" %>'></asp:LinkButton>
                          </ItemTemplate>                         
-                    </asp:TemplateField>
+                    </telerik:GridTemplateColumn>
                  </Columns>
-             </asp:GridView>
+                  </MasterTableView>
+              </telerik:RadGrid>
            </div>
     </div>
 

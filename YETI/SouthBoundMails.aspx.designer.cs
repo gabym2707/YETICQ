@@ -13,13 +13,13 @@ namespace YETI {
     public partial class SouthBoundMails {
         
         /// <summary>
-        /// Control gvNombres.
+        /// Control rgMails.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvNombres;
+        protected global::Telerik.Web.UI.RadGrid rgMails;
         
         /// <summary>
         /// Control txtName.
