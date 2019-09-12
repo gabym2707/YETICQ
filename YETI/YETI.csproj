@@ -199,6 +199,9 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MasterInvoiceSB.cs">
+      <DependentUpon>YETIDM.tt</DependentUpon>
+    </Compile>
     <Compile Include="MExports.aspx.cs">
       <DependentUpon>MExports.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
