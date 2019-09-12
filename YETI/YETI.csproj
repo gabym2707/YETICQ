@@ -187,6 +187,16 @@
     <Compile Include="cqc_skus.cs">
       <DependentUpon>YETIDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataSetMSB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetMSB.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetSB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetSB.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -254,6 +264,12 @@
       <DependentUpon>NorthBoundMails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\RSB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RSB.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\RSouthbound.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -329,6 +345,28 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="DataSetSB.xsc">
+      <DependentUpon>DataSetSB.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSetMSB.xsc">
+      <DependentUpon>DataSetMSB.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSetMSB.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetMSB.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSetMSB.xss">
+      <DependentUpon>DataSetMSB.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSetSB.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetSB.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSetSB.xss">
+      <DependentUpon>DataSetSB.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -354,6 +392,10 @@
     <Folder Include="SouthBound\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\RSB.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RSB.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\RSouthbound.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RSouthbound.cs</LastGenOutput>
