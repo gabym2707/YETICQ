@@ -114,6 +114,9 @@
                 <li>
                 <a href="MPaint.aspx">Painting</a>
               </li>
+                <li>
+                <a href="MUsers.aspx">Users</a>
+              </li>
             </ul>
           </li>
            

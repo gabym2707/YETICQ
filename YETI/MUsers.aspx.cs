@@ -7,35 +7,37 @@ using System.Web.UI.WebControls;
 
 namespace YETI
 {
-    public partial class MExports : System.Web.UI.Page
+    public partial class MUsers : System.Web.UI.Page
     {
         YETIEntities context = new YETIEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-                using (var context = new YETIEntities())
-                {
-                    rgNombres.DataSource = context.cqc_exports.ToList();
-                    rgNombres.DataBind();
-                    
-                }
-            
+            using (var context = new YETIEntities())
+            {
+                rgSKUs.DataSource = context.cqc_usuarios.ToList();
+                rgSKUs.DataBind();
+            }
         }
 
         protected void add_Click(object sender, EventArgs e)
         {
-            context.cqc_exports.Add(new cqc_exports
+            context.cqc_usuarios.Add(new cqc_usuarios
             {
-                cs_nombre = txtExporter.Text,
-                cs_address = txtAddress.Text,
-                cs_locacion = txtLocation.Text,
-                cs_phone = txtPhone.Text,
-                cs_ein = txtEin.Text
+                cs_nombre = txtName.Text,
+                cs_correo = txtMail.Text,
+                cs_alta = DateTime.Now,
+                cs_modificacion = DateTime.Now,
+                cb_southBound = chkSouth.Checked,
+                cb_northBount = chkNorth.Checked,
+                cb_masters = chkMasters.Checked,
+                cb_workOrder = chkWork.Checked,
+                cb_ups = chkUps.Checked
+                
             });
             context.SaveChanges();
             limpiarTextBox();
-            rgNombres.DataSource = context.cqc_exports.ToList();
-            rgNombres.DataBind();
+            rgSKUs.DataSource = context.cqc_usuarios.ToList();
+            rgSKUs.DataBind();
         }
 
         private void limpiarTextBox()

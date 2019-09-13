@@ -18,27 +18,34 @@
           <div class="col-sm-12">
               <br />
               <telerik:RadGrid runat="server" ID="rgMails" AutoGenerateColumns="false" Skin="Metro" GridLines="None"
-                  OnItemDataBound="rgMails_ItemDataBound">
+                  OnItemDataBound="rgMails_ItemDataBound" PagerStyle-AlwaysVisible="true" 
+                  AllowPaging="True" AllowSorting="True" CellSpacing="0" 
+                  Culture="es-ES" HeaderStyle-BackColor="#cfd6e5" BorderColor="#00263e" HeaderStyle-BorderColor="#00263e">
+                  <ClientSettings>
+					<Scrolling AllowScroll="True" UseStaticHeaders="True" />
+				</ClientSettings>
                   <MasterTableView>
                       <Columns>
-                     <telerik:GridTemplateColumn Visible="false" UniqueName="ci_id" DataField="ci_id">
-                         <ItemTemplate>
-                             <%# Eval("ci_id") %>
-                         </ItemTemplate>
-                     </telerik:GridTemplateColumn>
-                     <telerik:GridTemplateColumn HeaderText="Name" UniqueName="cs_nombre" DataField="cs_nombre">
-                         <ItemTemplate>
-                             <%# Eval("cs_nombre") %>
-                         </ItemTemplate>
-                     </telerik:GridTemplateColumn >
-                     <telerik:GridTemplateColumn HeaderText="Mail" UniqueName="cs_correo" DataField="cs_correo">
-                         <ItemTemplate>
-                             <%# Eval("cs_correo") %>
-                         </ItemTemplate>
-                     </telerik:GridTemplateColumn>
-                     <telerik:GridBoundColumn HeaderText="Active" UniqueName="cb_active" DataField="cb_active" DataType="System.Boolean">
-                        
-                    </telerik:GridBoundColumn>
+                          <telerik:GridBoundColumn DataField="ci_id" 
+							FilterControlAltText="Filter ci_id column" HeaderText="Id" 
+							SortExpression="ci_id" UniqueName="ci_id" 
+							AllowFiltering="false" Visible="false">
+						</telerik:GridBoundColumn>
+                          <telerik:GridBoundColumn DataField="cs_nombre" 
+							FilterControlAltText="Filter cs_nombre column" HeaderText="Name" 
+							SortExpression="cs_nombre" UniqueName="cs_nombre" 
+							AllowFiltering="false" >
+						</telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="cs_correo" 
+							FilterControlAltText="Filter cs_correo column" HeaderText="Email" 
+							SortExpression="cs_correo" UniqueName="cs_correo" 
+							AllowFiltering="false" >
+						</telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="cb_active" 
+							FilterControlAltText="Filter cb_active column" HeaderText="Active" 
+							SortExpression="cb_active" UniqueName="cb_active" 
+							AllowFiltering="false" >
+						</telerik:GridBoundColumn>
                      <telerik:GridTemplateColumn UniqueName="Deactivate">
                          <ItemTemplate>
                             <asp:LinkButton runat="server" ID="btnDeactivate" OnClick="btnDeactivate_Click" CssClass="btn btn-warning btn-sm" Text="Deactivate"
