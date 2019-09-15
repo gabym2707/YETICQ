@@ -53,10 +53,10 @@
                 <a href="ProductionOrder.aspx">New Southbound</a>
               </li>
              <li>
-                <a href="Southbounds.aspx">Commercial Invoices</a>
+                <a href="SouthBoundList.aspx">Commercial Invoices</a>
               </li>
              <li>
-                <a href="#">Southbound Template</a>
+                <a href="Templates/Southbound.xls">Southbound Template</a>
               </li>
             </ul>
           </li>
@@ -113,6 +113,12 @@
               </li>
                 <li>
                 <a href="MPaint.aspx">Painting</a>
+              </li>
+                 <li>
+                <a href="SouthBoundMails.aspx">SB Mails</a>
+              </li>
+                 <li>
+                <a href="NorthBoundMails.aspx">NB Mails</a>
               </li>
             </ul>
           </li>

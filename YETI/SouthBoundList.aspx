@@ -6,11 +6,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="Sd" runat="server"></asp:ScriptManager>
-    
+     <div class="row"> 
+        <div class="col-sm-12">  
+            <h2>Commercial Invoices</h2>  
+            </div>
+         </div>
       <div class="row">
         
         <div class="col-sm-12">    
-            <telerik:RadGrid runat="server" ID="rgSouthBoundList" Skin="Material" AutoGenerateColumns="false" OnItemCommand="rgSouthBoundList_ItemCommand">
+            <telerik:RadGrid runat="server" ID="rgSouthBoundList" Skin="Metro" AutoGenerateColumns="false" OnItemCommand="rgSouthBoundList_ItemCommand" AllowPaging="true" PagerStyle-Mode="NextPrevAndNumeric" OnPageIndexChanged="rgSouthBoundList_PageIndexChanged" PagerStyle-AlwaysVisible="true" pages>
                 <MasterTableView>
                     <Columns>
                         <telerik:GridTemplateColumn HeaderText="Production Order">
@@ -35,7 +39,7 @@
                         <%--<telerik:GridButtonColumn UniqueName="Download" ButtonType="LinkButton" CommandArgument='<%#Eval("fs_productionOrder") %>' Text="Download" CommandName="Download">
                         </telerik:GridButtonColumn>--%>
                          <telerik:GridTemplateColumn HeaderText="Tracking">
-                            <ItemTemplate><asp:Button ID="btnReject" runat="server" CommandName="Download"  CommandArgument='<%# Eval("fs_productionOrder") %>'/>
+                            <ItemTemplate><asp:Button ID="btnReject" runat="server" CommandName="Download" Text="Download" CssClass="btn btn-primary btn-sm"  CommandArgument='<%# Eval("fs_productionOrder") %>'/>
        </ItemTemplate>
                         </telerik:GridTemplateColumn>
                             

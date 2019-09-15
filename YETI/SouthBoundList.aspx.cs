@@ -117,5 +117,23 @@ namespace YETI
                 }
             }
         }
+
+        protected void rgSouthBoundList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void rgSouthBoundList_PageIndexChanged(object sender, Telerik.Web.UI.GridPageChangedEventArgs e)
+        {
+            using (var context = new YETIEntities())
+            {
+                var list = from g in context.SouthBounds
+                           where g.fc_status == "A"
+                           group g by new { g.fs_productionOrder, g.fs_reference, g.fs_trucker, g.fs_invoice, g.fs_tracking, g.fd_date } into gr
+                           select new { gr.Key.fs_productionOrder, gr.Key.fs_reference, gr.Key.fs_trucker, gr.Key.fs_invoice, gr.Key.fs_tracking, gr.Key.fd_date };
+                rgSouthBoundList.DataSource = list.OrderByDescending(o => o.fd_date).ToList();
+                rgSouthBoundList.DataBind();
+            }
+        }
     }
     }
