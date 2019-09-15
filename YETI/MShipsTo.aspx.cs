@@ -12,26 +12,29 @@ namespace YETI
         YETIEntities context = new YETIEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
+            
                 using (var context = new YETIEntities())
                 {
-                    gvNombres.DataSource = context.cqc_shipto.ToList();
-                    gvNombres.DataBind();                   
+                    rgNombres.DataSource = context.cqc_shipto.ToList();
+                    rgNombres.DataBind();                   
                 }
-            }
+            
         }
 
         protected void add_Click(object sender, EventArgs e)
         {
             context.cqc_shipto.Add(new cqc_shipto
             {
-                cs_nombre = txtShipTo.Text
+                cs_nombre = txtShipTo.Text,
+                cs_address = txtAddress.Text,
+                cs_locacion = txtLocation.Text,
+                cs_rfc = txtRFC.Text,
+                immex = txtImmex.Text
             });
             context.SaveChanges();
             limpiarTextBox();
-            gvNombres.DataSource = context.cqc_shipto.ToList();
-            gvNombres.DataBind();
+            rgNombres.DataSource = context.cqc_shipto.ToList();
+            rgNombres.DataBind();
         }
 
         private void limpiarTextBox()

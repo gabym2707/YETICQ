@@ -35,5 +35,6 @@ namespace YETI
         public virtual DbSet<MasterInvoiceSB> MasterInvoiceSBs { get; set; }
         public virtual DbSet<NorthBoundMail> NorthBoundMails { get; set; }
         public virtual DbSet<SouthBoundMail> SouthBoundMails { get; set; }
+        public virtual DbSet<cqc_usuarios> cqc_usuarios { get; set; }
     }
 }

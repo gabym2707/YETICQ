@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Telerik.Web.UI;
 
 namespace YETI
 {
@@ -16,8 +17,8 @@ namespace YETI
             {
                 using (var context = new YETIEntities())
                 {
-                    gvNombres.DataSource = context.NorthBoundMails.ToList();
-                    gvNombres.DataBind();
+                    rgMails.DataSource = context.NorthBoundMails.ToList();
+                    rgMails.DataBind();
 
                 }
             }
@@ -33,8 +34,8 @@ namespace YETI
             });
             context.SaveChanges();
             limpiarTextBox();
-            gvNombres.DataSource = context.NorthBoundMails.ToList();
-            gvNombres.DataBind();
+            rgMails.DataSource = context.NorthBoundMails.ToList();
+            rgMails.DataBind();
         }
         private void limpiarTextBox()
         {
@@ -63,8 +64,8 @@ namespace YETI
             {
                 m.cb_active = false;
                 context.SaveChanges();
-                gvNombres.DataSource = context.NorthBoundMails.ToList();
-                gvNombres.DataBind();
+                rgMails.DataSource = context.NorthBoundMails.ToList();
+                rgMails.DataBind();
             }
         }
 
@@ -80,11 +81,33 @@ namespace YETI
             {
                 m.cb_active = true;
                 context.SaveChanges();
-                gvNombres.DataSource = context.NorthBoundMails.ToList();
-                gvNombres.DataBind();
+                rgMails.DataSource = context.NorthBoundMails.ToList();
+                rgMails.DataBind();
             }
         }
 
-       
+        protected void rgMails_ItemDataBound(object sender, Telerik.Web.UI.GridItemEventArgs e)
+        {
+            if (e.Item is GridDataItem)
+            {
+                GridDataItem item = e.Item as GridDataItem;
+                bool stat = bool.Parse(item["cb_active"].Text);
+                //int scart = int.Parse(item["fi_statusCarta"].Text);
+                TableCell deact = item["Deactivate"];
+                TableCell react = item["Reactivate"];
+
+                if (stat)
+                {
+                    deact.Visible = true;
+                    react.Visible = false;
+                }
+                else
+                {
+                    deact.Visible = false;
+                    react.Visible = true;
+                }
+                
+            }
+        }
     }
 }

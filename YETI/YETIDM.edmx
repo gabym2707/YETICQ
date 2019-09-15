@@ -59,6 +59,22 @@
           <Property Name="cs_cost" Type="money" />
           <Property Name="cs_materialGroup" Type="varchar" MaxLength="30" />
         </EntityType>
+        <EntityType Name="cqc_usuarios">
+          <Key>
+            <PropertyRef Name="ci_id" />
+          </Key>
+          <Property Name="ci_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cs_nombre" Type="varchar" MaxLength="70" />
+          <Property Name="cs_correo" Type="varchar" MaxLength="70" />
+          <Property Name="cs_contrasena" Type="varchar" MaxLength="150" />
+          <Property Name="cs_alta" Type="datetime" />
+          <Property Name="cs_modificacion" Type="datetime" />
+          <Property Name="cb_southBound" Type="bit" />
+          <Property Name="cb_northBount" Type="bit" />
+          <Property Name="cb_masters" Type="bit" />
+          <Property Name="cb_workOrder" Type="bit" />
+          <Property Name="cb_ups" Type="bit" />
+        </EntityType>
         <EntityType Name="NorthBound">
           <Key>
             <PropertyRef Name="fi_id" />
@@ -175,6 +191,7 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
           <EntitySet Name="cqc_shippers" EntityType="Self.cqc_shippers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cqc_shipto" EntityType="Self.cqc_shipto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cqc_skus" EntityType="Self.cqc_skus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cqc_usuarios" EntityType="Self.cqc_usuarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NorthBound" EntityType="Self.NorthBound" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NorthBoundMails" EntityType="Self.NorthBoundMails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SouthBound" EntityType="Self.SouthBound" Schema="dbo" store:Type="Tables" />
@@ -210,6 +227,7 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
           <EntitySet Name="MasterInvoiceSBs" EntityType="YETIDM.MasterInvoiceSB" />
           <EntitySet Name="NorthBoundMails" EntityType="YETIDM.NorthBoundMail" />
           <EntitySet Name="SouthBoundMails" EntityType="YETIDM.SouthBoundMail" />
+          <EntitySet Name="cqc_usuarios" EntityType="YETIDM.cqc_usuarios" />
         </EntityContainer>
         <EntityType Name="cqc_exports">
           <Key>
@@ -372,6 +390,22 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
           <Property Name="cs_nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="cs_correo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="cb_active" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="cqc_usuarios">
+          <Key>
+            <PropertyRef Name="ci_id" />
+          </Key>
+          <Property Name="ci_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cs_nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="cs_correo" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="cs_contrasena" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="cs_alta" Type="DateTime" Precision="3" />
+          <Property Name="cs_modificacion" Type="DateTime" Precision="3" />
+          <Property Name="cb_southBound" Type="Boolean" />
+          <Property Name="cb_northBount" Type="Boolean" />
+          <Property Name="cb_masters" Type="Boolean" />
+          <Property Name="cb_workOrder" Type="Boolean" />
+          <Property Name="cb_ups" Type="Boolean" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -543,6 +577,23 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
             <EntityTypeMapping TypeName="YETIDM.SouthBoundMail">
               <MappingFragment StoreEntitySet="SouthBoundMails">
                 <ScalarProperty Name="cb_active" ColumnName="cb_active" />
+                <ScalarProperty Name="cs_correo" ColumnName="cs_correo" />
+                <ScalarProperty Name="cs_nombre" ColumnName="cs_nombre" />
+                <ScalarProperty Name="ci_id" ColumnName="ci_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cqc_usuarios">
+            <EntityTypeMapping TypeName="YETIDM.cqc_usuarios">
+              <MappingFragment StoreEntitySet="cqc_usuarios">
+                <ScalarProperty Name="cb_ups" ColumnName="cb_ups" />
+                <ScalarProperty Name="cb_workOrder" ColumnName="cb_workOrder" />
+                <ScalarProperty Name="cb_masters" ColumnName="cb_masters" />
+                <ScalarProperty Name="cb_northBount" ColumnName="cb_northBount" />
+                <ScalarProperty Name="cb_southBound" ColumnName="cb_southBound" />
+                <ScalarProperty Name="cs_modificacion" ColumnName="cs_modificacion" />
+                <ScalarProperty Name="cs_alta" ColumnName="cs_alta" />
+                <ScalarProperty Name="cs_contrasena" ColumnName="cs_contrasena" />
                 <ScalarProperty Name="cs_correo" ColumnName="cs_correo" />
                 <ScalarProperty Name="cs_nombre" ColumnName="cs_nombre" />
                 <ScalarProperty Name="ci_id" ColumnName="ci_id" />
