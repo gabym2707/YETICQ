@@ -12,6 +12,7 @@ namespace YETI
 {
     public partial class WorkOrderImport : System.Web.UI.Page
     {
+        YETIEntities context = new YETIEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
@@ -43,6 +44,11 @@ namespace YETI
                 else
                 {
                     ImportSB.SaveAs(Server.MapPath("~/Southbound/" + txtPO.Text + ".xls"));
+                    context.cqf_logActividad.Add(new cqf_logActividad {
+                        fdt_fecha = DateTime.Now,
+                        fi_idUsuario = int.Parse(Session["UserID"].ToString()),
+                        fs_actividad = "Upload Production Order File" });
+                    context.SaveChanges();
                 } 
                 
             }
@@ -109,8 +115,8 @@ namespace YETI
                         }
                     }
 
-                    rgSouthBound.DataSource = SBs.ToList();
-                    rgSouthBound.DataBind();
+                    rgProductionOrder.DataSource = SBs.ToList();
+                    rgProductionOrder.DataBind();
                 }
             }
 
@@ -119,6 +125,7 @@ namespace YETI
 
         protected void lnkInsertar_Click(object sender, EventArgs e)
         {
+            
             List<SouthBound> SBs = new List<SouthBound>();
             using (var stream = File.Open(Server.MapPath("~/Southbound/"+txtPO.Text+".xls"), FileMode.Open, FileAccess.Read))
             {
@@ -154,7 +161,7 @@ namespace YETI
                                 s.fs_moneda = ddlsCurrency.SelectedItem.Text;
                                 s.fs_incoterms = ddlsIncoterms.SelectedItem.Text;
                                 s.fd_shipDate = new DateTime(int.Parse(ShipDate[0]), int.Parse(ShipDate[1]), int.Parse(ShipDate[2]));
-                                s.fs_partNumber = reader.GetString(0);
+                                try { s.fs_partNumber = reader.GetString(0); } catch { s.fs_partNumber = reader.GetDouble(0).ToString(); }
                                 s.fs_description = reader.GetString(1);
                                 s.fs_scheduleHsCode = reader.GetString(2);
                                 s.fs_coo = reader.GetString(3);
@@ -184,8 +191,20 @@ namespace YETI
                             }
                         }
                     }
+                    using (var context = new YETIEntities())
+                    {
+                        cqf_logActividad log = new cqf_logActividad();
+                        log.fdt_fecha = DateTime.Now;
+                        log.fi_idUsuario = int.Parse(Session["UserID"].ToString());
+                        log.fs_actividad = "Add Production Order: "+txtPO.Text;
+
+                        context.cqf_logActividad.Add(log);
+                        context.SaveChanges();
+                    }
                 }
             }
+
+            Response.Redirect("SouthBoundList.aspx");
         }
 
         protected void yes_Click(object sender, EventArgs e)
@@ -199,8 +218,18 @@ namespace YETI
                     {
                         s.fc_status = "C";
                         context.SaveChanges();
+
+                        cqf_logActividad log = new cqf_logActividad();
+                        log.fdt_fecha = DateTime.Now;
+                        log.fi_idUsuario = int.Parse(Session["UserID"].ToString());
+                        log.fs_actividad = "Cancel Production Order: "+ txtPO;
+
+                        context.cqf_logActividad.Add(log);
+
+                        context.SaveChanges();
+
                     }
-                    
+
                 }
             }
 

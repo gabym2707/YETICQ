@@ -45,6 +45,15 @@ namespace YETI
 
                 crystalReportViewer1.RefreshReport();
                 cryRpt.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Server.MapPath("~/Reports/RSouthBound.pdf"));
+
+                cqf_logActividad log = new cqf_logActividad();
+                log.fdt_fecha = DateTime.Now;
+                log.fi_idUsuario = int.Parse(Session["UserID"].ToString());
+                log.fs_actividad = "Download South Bound Report Production Order:"+PO;
+
+                context.cqf_logActividad.Add(log);
+                context.SaveChanges();
+
             } 
         }
 
@@ -85,35 +94,7 @@ namespace YETI
                 crystalReportViewer1.RefreshReport();
                cryRpt.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Server.MapPath("~/Reports/RSouthBound"+PO+".pdf"));
                 cryRpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, HttpContext.Current.Response, true, "RSouthBound"+PO+".pdf");
-                    /*ReportDocument cryRpt = new ReportDocument();
-                    cryRpt.Load(Server.MapPath("~/Reports/RSouthBound.rpt"));
-
-                    var t = context.SouthBounds.Where(w => w.fs_productionOrder == PO & w.fc_status=="A").ToList();
-                    cryRpt.Database.Tables["SouthBound"].SetDataSource(t);
-
-                    var exportid = context.SouthBounds.Where(w => w.fs_productionOrder == PO & w.fc_status == "A").Select(s => s.fi_exportRecords).FirstOrDefault();
-                    var importid = context.SouthBounds.Where(w => w.fs_productionOrder == PO & w.fc_status == "A").Select(s => s.fi_importRecords).FirstOrDefault();
-                    var shipperid = context.SouthBounds.Where(w => w.fs_productionOrder == PO & w.fc_status == "A").Select(s => s.fi_shipper).FirstOrDefault();
-                    var shiptoid = context.SouthBounds.Where(w => w.fs_productionOrder == PO & w.fc_status == "A").Select(s => s.fi_shipTo).FirstOrDefault();
-
-                    var ex =  context.cqc_exports.Where(w => w.ci_id == exportid).ToList();
-                    var im = context.cqc_imports.Where(w => w.ci_id == importid).ToList();
-                    var sp = context.cqc_shippers.Where(w => w.ci_id == shipperid).ToList();
-                    var st = context.cqc_shipto.Where(w => w.ci_id == shiptoid).ToList();
-                    var master= context.MasterInvoiceSBs.Where(w => w.fs_productionOrder == PO).ToList();
-                    cryRpt.Database.Tables["cqc_exports"].SetDataSource(ex);
-                    cryRpt.Database.Tables["cqc_imports"].SetDataSource(im);
-                    cryRpt.Database.Tables["cqc_shippers"].SetDataSource(sp);
-                    cryRpt.Database.Tables["cqc_shipto"].SetDataSource(st);
-                    //cryRpt.Database.Tables["MasterInvoiceSBs"].SetDataSource(master);
-
-                    crystalReportViewer1.ReportSource = cryRpt;
-
-                    crystalReportViewer1.RefreshReport();
-                    //rpt.SetDatabaseLogon("", "",, "ADMIN-PC\\ADMIN", "dbRMC");
-                  //  cryRpt.SetDatabaseLogon("cqrepo", "ZKmrbXT8KaG5", "65.151.189.66","YETI");
-                    //cryRpt.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Server.MapPath("~/Reports/RSouthBound.pdf"));
-                    cryRpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, HttpContext.Current.Response, true, "TEST");*/
+                    Response.Redirect("Inicio.aspx");
                 }
             }
         }

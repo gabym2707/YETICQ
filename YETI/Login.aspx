@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="YETI.Login" %>
-
+ <%@ OutputCache Location="None" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -139,12 +139,12 @@
               <h3 class="login-heading mb-4">Welcome back!</h3>
               <form id="form1" runat="server">
                 <div class="form-label-group">
-                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                  <input  id="inputEmail" class="form-control" placeholder="Email address" runat="server" required autofocus>
                   <label for="inputEmail">Email address</label>
                 </div>
 
                 <div class="form-label-group">
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" runat="server" required>
                   <label for="inputPassword">Password</label>
                 </div>
 

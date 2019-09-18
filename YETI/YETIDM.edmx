@@ -69,11 +69,132 @@
           <Property Name="cs_contrasena" Type="varchar" MaxLength="150" />
           <Property Name="cs_alta" Type="datetime" />
           <Property Name="cs_modificacion" Type="datetime" />
+          <Property Name="cb_active" Type="bit" />
           <Property Name="cb_southBound" Type="bit" />
           <Property Name="cb_northBount" Type="bit" />
           <Property Name="cb_masters" Type="bit" />
           <Property Name="cb_workOrder" Type="bit" />
           <Property Name="cb_ups" Type="bit" />
+          <Property Name="cb_scrap" Type="bit" />
+          <Property Name="cb_balance" Type="bit" />
+        </EntityType>
+        <EntityType Name="cqf_confirmationsNB">
+          <Key>
+            <PropertyRef Name="fi_id" />
+          </Key>
+          <Property Name="fi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fs_correo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fdt_fecha" Type="datetime" Nullable="false" />
+          <Property Name="fs_invoiceNumber" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cqf_confirmationsSB">
+          <Key>
+            <PropertyRef Name="fi_id" />
+          </Key>
+          <Property Name="fi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fs_correo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fdt_fecha" Type="datetime" Nullable="false" />
+          <Property Name="fs_productionOrder" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cqf_confirmationsWO">
+          <Key>
+            <PropertyRef Name="fi_id" />
+          </Key>
+          <Property Name="fi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fs_correo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fdt_fecha" Type="datetime" Nullable="false" />
+          <Property Name="fs_workOrder" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cqf_immexTransfer">
+          <Key>
+            <PropertyRef Name="fi_id" />
+          </Key>
+          <Property Name="fi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fdt_fecha" Type="datetime" Nullable="false" />
+          <Property Name="fs_immexNombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fs_sku" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="fi_qty" Type="int" />
+          <Property Name="fs_file" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="cqf_logActividad">
+          <Key>
+            <PropertyRef Name="fi_id" />
+          </Key>
+          <Property Name="fi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fi_idUsuario" Type="int" />
+          <Property Name="fdt_fecha" Type="datetime" />
+          <Property Name="fs_actividad" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="cqf_mexicanDutys">
+          <Key>
+            <PropertyRef Name="fi_id" />
+          </Key>
+          <Property Name="fi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fdt_fecha" Type="datetime" Nullable="false" />
+          <Property Name="fs_sku" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="fi_qty" Type="int" />
+        </EntityType>
+        <EntityType Name="cqf_scrap">
+          <Key>
+            <PropertyRef Name="fi_id" />
+          </Key>
+          <Property Name="fi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fdt_fecha" Type="datetime" Nullable="false" />
+          <Property Name="fs_pedimento" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="fs_sku" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="fi_qty" Type="int" />
+          <Property Name="fs_file" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="cqf_workOrder">
+          <Key>
+            <PropertyRef Name="fi_id" />
+          </Key>
+          <Property Name="fi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fc_status" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="fs_workOrder" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="fdt_date" Type="datetime" Nullable="false" />
+          <Property Name="fs_sku" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="fs_paintCode" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="fs_engraving" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="fi_qty" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cqf_WorkOrderMaster">
+          <Key>
+            <PropertyRef Name="fi_id" />
+          </Key>
+          <Property Name="fi_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fc_status" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="fs_workOrder" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="fdt_date" Type="datetime" Nullable="false" />
+          <Property Name="fs_shipperUpsAccount" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="fs_reference" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="fs_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fs_telephone" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="fs_company" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fs_streetAddress" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="fs_cityState" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fs_deliverToName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fs_deliverPhone" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="fs_deliverCompany" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fs_deliverStreetAddress" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="fs_deliverCityState" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fd_weightLbs" Type="float" Nullable="false" />
+          <Property Name="fd_dimentionalWeight" Type="float" Nullable="false" />
+          <Property Name="fd_largePackage" Type="float" Nullable="false" />
+          <Property Name="fs_shipperRelease" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="fd_groundSdpShippingCharges" Type="money" Nullable="false" />
+          <Property Name="fd_declareValueCarriage" Type="money" Nullable="false" />
+          <Property Name="fd_amount" Type="money" Nullable="false" />
+          <Property Name="fd_aditionalHandlingCharge" Type="money" Nullable="false" />
+          <Property Name="fd_totalCharges" Type="money" Nullable="false" />
+          <Property Name="fb_billShipperAccountNumber" Type="bit" Nullable="false" />
+          <Property Name="fb_billReceiver" Type="bit" Nullable="false" />
+          <Property Name="fb_billThirdParty" Type="bit" Nullable="false" />
+          <Property Name="fb_billCreditCard" Type="bit" Nullable="false" />
+          <Property Name="fs_receiversThirdPartyUpsAcct" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fs_thirdPartCompanyName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="fs_thirdStreetAddress" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="fs_thirdCityState" Type="varchar" MaxLength="120" Nullable="false" />
         </EntityType>
         <EntityType Name="NorthBound">
           <Key>
@@ -192,6 +313,15 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
           <EntitySet Name="cqc_shipto" EntityType="Self.cqc_shipto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cqc_skus" EntityType="Self.cqc_skus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cqc_usuarios" EntityType="Self.cqc_usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cqf_confirmationsNB" EntityType="Self.cqf_confirmationsNB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cqf_confirmationsSB" EntityType="Self.cqf_confirmationsSB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cqf_confirmationsWO" EntityType="Self.cqf_confirmationsWO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cqf_immexTransfer" EntityType="Self.cqf_immexTransfer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cqf_logActividad" EntityType="Self.cqf_logActividad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cqf_mexicanDutys" EntityType="Self.cqf_mexicanDutys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cqf_scrap" EntityType="Self.cqf_scrap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cqf_workOrder" EntityType="Self.cqf_workOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cqf_WorkOrderMaster" EntityType="Self.cqf_WorkOrderMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NorthBound" EntityType="Self.NorthBound" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NorthBoundMails" EntityType="Self.NorthBoundMails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SouthBound" EntityType="Self.SouthBound" Schema="dbo" store:Type="Tables" />
@@ -221,13 +351,22 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
           <EntitySet Name="cqc_imports" EntityType="YETIDM.cqc_imports" />
           <EntitySet Name="cqc_shippers" EntityType="YETIDM.cqc_shippers" />
           <EntitySet Name="cqc_shipto" EntityType="YETIDM.cqc_shipto" />
-          <EntitySet Name="NorthBounds" EntityType="YETIDM.NorthBound" />
           <EntitySet Name="cqc_skus" EntityType="YETIDM.cqc_skus" />
           <EntitySet Name="SouthBounds" EntityType="YETIDM.SouthBound" />
           <EntitySet Name="MasterInvoiceSBs" EntityType="YETIDM.MasterInvoiceSB" />
           <EntitySet Name="NorthBoundMails" EntityType="YETIDM.NorthBoundMail" />
           <EntitySet Name="SouthBoundMails" EntityType="YETIDM.SouthBoundMail" />
+          <EntitySet Name="cqf_logActividad" EntityType="YETIDM.cqf_logActividad" />
+          <EntitySet Name="NorthBounds" EntityType="YETIDM.NorthBound" />
+          <EntitySet Name="cqf_confirmationsNB" EntityType="YETIDM.cqf_confirmationsNB" />
+          <EntitySet Name="cqf_confirmationsSB" EntityType="YETIDM.cqf_confirmationsSB" />
+          <EntitySet Name="cqf_confirmationsWO" EntityType="YETIDM.cqf_confirmationsWO" />
+          <EntitySet Name="cqf_workOrder" EntityType="YETIDM.cqf_workOrder" />
+          <EntitySet Name="cqf_immexTransfer" EntityType="YETIDM.cqf_immexTransfer" />
+          <EntitySet Name="cqf_mexicanDutys" EntityType="YETIDM.cqf_mexicanDutys" />
+          <EntitySet Name="cqf_scrap" EntityType="YETIDM.cqf_scrap" />
           <EntitySet Name="cqc_usuarios" EntityType="YETIDM.cqc_usuarios" />
+          <EntitySet Name="cqf_WorkOrderMaster" EntityType="YETIDM.cqf_WorkOrderMaster" />
         </EntityContainer>
         <EntityType Name="cqc_exports">
           <Key>
@@ -270,45 +409,6 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
           <Property Name="cs_locacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="cs_rfc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="immex" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="NorthBound">
-          <Key>
-            <PropertyRef Name="fi_id" />
-          </Key>
-          <Property Name="fi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="fc_status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="fdt_invoiceDate" Type="DateTime" Precision="0" />
-          <Property Name="fs_invoiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="fs_trailerNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="fs_sealNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="fi_exportOfRecord" Type="Int32" />
-          <Property Name="fs_exportOfRecord" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="fi_importer" Type="Int32" />
-          <Property Name="fs_importer" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="fi_shipper" Type="Int32" />
-          <Property Name="fs_shipper" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="fi_shipTo" Type="Int32" />
-          <Property Name="fs_shipTo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="fs_incoterm" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="fdt_shipDate" Type="DateTime" Precision="0" />
-          <Property Name="fs_shipVia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="fs_SKU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="fs_descYeti" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="fs_hsCodeYeti" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="fs_COOYeti" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="fi_qtyYeti" Type="Int32" />
-          <Property Name="fd_unitPriceYeti" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="fd_extPriceYeti" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="fs_descSP" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="fs_hsCodeSP" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="fs_COOSP" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="fd_unitPriceSP" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="fd_extPriceSP" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="fs_WONumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="fs_upsTracking" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="fd_totalEnteredValue" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="fd_totalWeight" Type="Double" />
-          <Property Name="fd_totalAmount" Type="Decimal" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="cqc_skus">
           <Key>
@@ -391,6 +491,125 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
           <Property Name="cs_correo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="cb_active" Type="Boolean" />
         </EntityType>
+        <EntityType Name="cqf_logActividad">
+          <Key>
+            <PropertyRef Name="fi_id" />
+          </Key>
+          <Property Name="fi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fi_idUsuario" Type="Int32" />
+          <Property Name="fdt_fecha" Type="DateTime" Precision="3" />
+          <Property Name="fs_actividad" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NorthBound">
+          <Key>
+            <PropertyRef Name="fi_id" />
+          </Key>
+          <Property Name="fi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fc_status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="fdt_invoiceDate" Type="DateTime" Precision="0" />
+          <Property Name="fs_invoiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fs_trailerNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fs_sealNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fi_exportOfRecord" Type="Int32" />
+          <Property Name="fs_exportOfRecord" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="fi_importer" Type="Int32" />
+          <Property Name="fs_importer" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="fi_shipper" Type="Int32" />
+          <Property Name="fs_shipper" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="fi_shipTo" Type="Int32" />
+          <Property Name="fs_shipTo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="fs_incoterm" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="fdt_shipDate" Type="DateTime" Precision="0" />
+          <Property Name="fs_shipVia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fs_SKU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fs_descYeti" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="fs_hsCodeYeti" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fs_COOYeti" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="fi_qtyYeti" Type="Int32" />
+          <Property Name="fd_unitPriceYeti" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="fd_extPriceYeti" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="fs_descSP" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="fs_hsCodeSP" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fs_COOSP" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="fd_unitPriceSP" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="fd_extPriceSP" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="fs_WONumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fs_upsTracking" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fd_totalEnteredValue" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="fd_totalWeight" Type="Double" />
+          <Property Name="fd_totalAmount" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="cqf_confirmationsNB">
+          <Key>
+            <PropertyRef Name="fi_id" />
+          </Key>
+          <Property Name="fi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fs_correo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fdt_fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fs_invoiceNumber" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="cqf_confirmationsSB">
+          <Key>
+            <PropertyRef Name="fi_id" />
+          </Key>
+          <Property Name="fi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fs_correo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fdt_fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fs_productionOrder" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="cqf_confirmationsWO">
+          <Key>
+            <PropertyRef Name="fi_id" />
+          </Key>
+          <Property Name="fi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fs_correo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fdt_fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fs_workOrder" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="cqf_workOrder">
+          <Key>
+            <PropertyRef Name="fi_id" />
+          </Key>
+          <Property Name="fi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fc_status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="fs_workOrder" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fdt_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fs_sku" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fs_paintCode" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fs_engraving" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="fi_qty" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cqf_immexTransfer">
+          <Key>
+            <PropertyRef Name="fi_id" />
+          </Key>
+          <Property Name="fi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fdt_fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fs_immexNombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fs_sku" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fi_qty" Type="Int32" />
+          <Property Name="fs_file" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="cqf_mexicanDutys">
+          <Key>
+            <PropertyRef Name="fi_id" />
+          </Key>
+          <Property Name="fi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fdt_fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fs_sku" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fi_qty" Type="Int32" />
+        </EntityType>
+        <EntityType Name="cqf_scrap">
+          <Key>
+            <PropertyRef Name="fi_id" />
+          </Key>
+          <Property Name="fi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fdt_fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fs_pedimento" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fs_sku" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fi_qty" Type="Int32" />
+          <Property Name="fs_file" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="cqc_usuarios">
           <Key>
             <PropertyRef Name="ci_id" />
@@ -401,11 +620,52 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
           <Property Name="cs_contrasena" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="cs_alta" Type="DateTime" Precision="3" />
           <Property Name="cs_modificacion" Type="DateTime" Precision="3" />
+          <Property Name="cb_active" Type="Boolean" />
           <Property Name="cb_southBound" Type="Boolean" />
           <Property Name="cb_northBount" Type="Boolean" />
           <Property Name="cb_masters" Type="Boolean" />
           <Property Name="cb_workOrder" Type="Boolean" />
           <Property Name="cb_ups" Type="Boolean" />
+          <Property Name="cb_scrap" Type="Boolean" />
+          <Property Name="cb_balance" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="cqf_WorkOrderMaster">
+          <Key>
+            <PropertyRef Name="fi_id" />
+          </Key>
+          <Property Name="fi_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fc_status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="fs_workOrder" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fdt_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fs_shipperUpsAccount" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fs_reference" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fs_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fs_telephone" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fs_company" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fs_streetAddress" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="fs_cityState" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fs_deliverToName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fs_deliverPhone" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fs_deliverCompany" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fs_deliverStreetAddress" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="fs_deliverCityState" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fd_weightLbs" Type="Double" Nullable="false" />
+          <Property Name="fd_dimentionalWeight" Type="Double" Nullable="false" />
+          <Property Name="fd_largePackage" Type="Double" Nullable="false" />
+          <Property Name="fs_shipperRelease" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fd_groundSdpShippingCharges" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="fd_declareValueCarriage" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="fd_amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="fd_aditionalHandlingCharge" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="fd_totalCharges" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="fb_billShipperAccountNumber" Type="Boolean" Nullable="false" />
+          <Property Name="fb_billReceiver" Type="Boolean" Nullable="false" />
+          <Property Name="fb_billThirdParty" Type="Boolean" Nullable="false" />
+          <Property Name="fb_billCreditCard" Type="Boolean" Nullable="false" />
+          <Property Name="fs_receiversThirdPartyUpsAcct" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="fs_thirdPartCompanyName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="fs_thirdStreetAddress" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="fs_thirdCityState" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -456,46 +716,6 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
                 <ScalarProperty Name="cs_address" ColumnName="cs_address" />
                 <ScalarProperty Name="cs_nombre" ColumnName="cs_nombre" />
                 <ScalarProperty Name="ci_id" ColumnName="ci_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="NorthBounds">
-            <EntityTypeMapping TypeName="YETIDM.NorthBound">
-              <MappingFragment StoreEntitySet="NorthBound">
-                <ScalarProperty Name="fd_totalAmount" ColumnName="fd_totalAmount" />
-                <ScalarProperty Name="fd_totalWeight" ColumnName="fd_totalWeight" />
-                <ScalarProperty Name="fd_totalEnteredValue" ColumnName="fd_totalEnteredValue" />
-                <ScalarProperty Name="fs_upsTracking" ColumnName="fs_upsTracking" />
-                <ScalarProperty Name="fs_WONumber" ColumnName="fs_WONumber" />
-                <ScalarProperty Name="fd_extPriceSP" ColumnName="fd_extPriceSP" />
-                <ScalarProperty Name="fd_unitPriceSP" ColumnName="fd_unitPriceSP" />
-                <ScalarProperty Name="fs_COOSP" ColumnName="fs_COOSP" />
-                <ScalarProperty Name="fs_hsCodeSP" ColumnName="fs_hsCodeSP" />
-                <ScalarProperty Name="fs_descSP" ColumnName="fs_descSP" />
-                <ScalarProperty Name="fd_extPriceYeti" ColumnName="fd_extPriceYeti" />
-                <ScalarProperty Name="fd_unitPriceYeti" ColumnName="fd_unitPriceYeti" />
-                <ScalarProperty Name="fi_qtyYeti" ColumnName="fi_qtyYeti" />
-                <ScalarProperty Name="fs_COOYeti" ColumnName="fs_COOYeti" />
-                <ScalarProperty Name="fs_hsCodeYeti" ColumnName="fs_hsCodeYeti" />
-                <ScalarProperty Name="fs_descYeti" ColumnName="fs_descYeti" />
-                <ScalarProperty Name="fs_SKU" ColumnName="fs_SKU" />
-                <ScalarProperty Name="fs_shipVia" ColumnName="fs_shipVia" />
-                <ScalarProperty Name="fdt_shipDate" ColumnName="fdt_shipDate" />
-                <ScalarProperty Name="fs_incoterm" ColumnName="fs_incoterm" />
-                <ScalarProperty Name="fs_shipTo" ColumnName="fs_shipTo" />
-                <ScalarProperty Name="fi_shipTo" ColumnName="fi_shipTo" />
-                <ScalarProperty Name="fs_shipper" ColumnName="fs_shipper" />
-                <ScalarProperty Name="fi_shipper" ColumnName="fi_shipper" />
-                <ScalarProperty Name="fs_importer" ColumnName="fs_importer" />
-                <ScalarProperty Name="fi_importer" ColumnName="fi_importer" />
-                <ScalarProperty Name="fs_exportOfRecord" ColumnName="fs_exportOfRecord" />
-                <ScalarProperty Name="fi_exportOfRecord" ColumnName="fi_exportOfRecord" />
-                <ScalarProperty Name="fs_sealNumber" ColumnName="fs_sealNumber" />
-                <ScalarProperty Name="fs_trailerNumber" ColumnName="fs_trailerNumber" />
-                <ScalarProperty Name="fs_invoiceNumber" ColumnName="fs_invoiceNumber" />
-                <ScalarProperty Name="fdt_invoiceDate" ColumnName="fdt_invoiceDate" />
-                <ScalarProperty Name="fc_status" ColumnName="fc_status" />
-                <ScalarProperty Name="fi_id" ColumnName="fi_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -583,20 +803,190 @@ advertencia 6002: La tabla o vista 'YETI.dbo.MasterInvoiceSB' no tiene definida 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="cqf_logActividad">
+            <EntityTypeMapping TypeName="YETIDM.cqf_logActividad">
+              <MappingFragment StoreEntitySet="cqf_logActividad">
+                <ScalarProperty Name="fs_actividad" ColumnName="fs_actividad" />
+                <ScalarProperty Name="fdt_fecha" ColumnName="fdt_fecha" />
+                <ScalarProperty Name="fi_idUsuario" ColumnName="fi_idUsuario" />
+                <ScalarProperty Name="fi_id" ColumnName="fi_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NorthBounds">
+            <EntityTypeMapping TypeName="YETIDM.NorthBound">
+              <MappingFragment StoreEntitySet="NorthBound">
+                <ScalarProperty Name="fd_totalAmount" ColumnName="fd_totalAmount" />
+                <ScalarProperty Name="fd_totalWeight" ColumnName="fd_totalWeight" />
+                <ScalarProperty Name="fd_totalEnteredValue" ColumnName="fd_totalEnteredValue" />
+                <ScalarProperty Name="fs_upsTracking" ColumnName="fs_upsTracking" />
+                <ScalarProperty Name="fs_WONumber" ColumnName="fs_WONumber" />
+                <ScalarProperty Name="fd_extPriceSP" ColumnName="fd_extPriceSP" />
+                <ScalarProperty Name="fd_unitPriceSP" ColumnName="fd_unitPriceSP" />
+                <ScalarProperty Name="fs_COOSP" ColumnName="fs_COOSP" />
+                <ScalarProperty Name="fs_hsCodeSP" ColumnName="fs_hsCodeSP" />
+                <ScalarProperty Name="fs_descSP" ColumnName="fs_descSP" />
+                <ScalarProperty Name="fd_extPriceYeti" ColumnName="fd_extPriceYeti" />
+                <ScalarProperty Name="fd_unitPriceYeti" ColumnName="fd_unitPriceYeti" />
+                <ScalarProperty Name="fi_qtyYeti" ColumnName="fi_qtyYeti" />
+                <ScalarProperty Name="fs_COOYeti" ColumnName="fs_COOYeti" />
+                <ScalarProperty Name="fs_hsCodeYeti" ColumnName="fs_hsCodeYeti" />
+                <ScalarProperty Name="fs_descYeti" ColumnName="fs_descYeti" />
+                <ScalarProperty Name="fs_SKU" ColumnName="fs_SKU" />
+                <ScalarProperty Name="fs_shipVia" ColumnName="fs_shipVia" />
+                <ScalarProperty Name="fdt_shipDate" ColumnName="fdt_shipDate" />
+                <ScalarProperty Name="fs_incoterm" ColumnName="fs_incoterm" />
+                <ScalarProperty Name="fs_shipTo" ColumnName="fs_shipTo" />
+                <ScalarProperty Name="fi_shipTo" ColumnName="fi_shipTo" />
+                <ScalarProperty Name="fs_shipper" ColumnName="fs_shipper" />
+                <ScalarProperty Name="fi_shipper" ColumnName="fi_shipper" />
+                <ScalarProperty Name="fs_importer" ColumnName="fs_importer" />
+                <ScalarProperty Name="fi_importer" ColumnName="fi_importer" />
+                <ScalarProperty Name="fs_exportOfRecord" ColumnName="fs_exportOfRecord" />
+                <ScalarProperty Name="fi_exportOfRecord" ColumnName="fi_exportOfRecord" />
+                <ScalarProperty Name="fs_sealNumber" ColumnName="fs_sealNumber" />
+                <ScalarProperty Name="fs_trailerNumber" ColumnName="fs_trailerNumber" />
+                <ScalarProperty Name="fs_invoiceNumber" ColumnName="fs_invoiceNumber" />
+                <ScalarProperty Name="fdt_invoiceDate" ColumnName="fdt_invoiceDate" />
+                <ScalarProperty Name="fc_status" ColumnName="fc_status" />
+                <ScalarProperty Name="fi_id" ColumnName="fi_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cqf_confirmationsNB">
+            <EntityTypeMapping TypeName="YETIDM.cqf_confirmationsNB">
+              <MappingFragment StoreEntitySet="cqf_confirmationsNB">
+                <ScalarProperty Name="fs_invoiceNumber" ColumnName="fs_invoiceNumber" />
+                <ScalarProperty Name="fdt_fecha" ColumnName="fdt_fecha" />
+                <ScalarProperty Name="fs_correo" ColumnName="fs_correo" />
+                <ScalarProperty Name="fi_id" ColumnName="fi_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cqf_confirmationsSB">
+            <EntityTypeMapping TypeName="YETIDM.cqf_confirmationsSB">
+              <MappingFragment StoreEntitySet="cqf_confirmationsSB">
+                <ScalarProperty Name="fs_productionOrder" ColumnName="fs_productionOrder" />
+                <ScalarProperty Name="fdt_fecha" ColumnName="fdt_fecha" />
+                <ScalarProperty Name="fs_correo" ColumnName="fs_correo" />
+                <ScalarProperty Name="fi_id" ColumnName="fi_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cqf_confirmationsWO">
+            <EntityTypeMapping TypeName="YETIDM.cqf_confirmationsWO">
+              <MappingFragment StoreEntitySet="cqf_confirmationsWO">
+                <ScalarProperty Name="fs_workOrder" ColumnName="fs_workOrder" />
+                <ScalarProperty Name="fdt_fecha" ColumnName="fdt_fecha" />
+                <ScalarProperty Name="fs_correo" ColumnName="fs_correo" />
+                <ScalarProperty Name="fi_id" ColumnName="fi_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cqf_workOrder">
+            <EntityTypeMapping TypeName="YETIDM.cqf_workOrder">
+              <MappingFragment StoreEntitySet="cqf_workOrder">
+                <ScalarProperty Name="fi_qty" ColumnName="fi_qty" />
+                <ScalarProperty Name="fs_engraving" ColumnName="fs_engraving" />
+                <ScalarProperty Name="fs_paintCode" ColumnName="fs_paintCode" />
+                <ScalarProperty Name="fs_sku" ColumnName="fs_sku" />
+                <ScalarProperty Name="fdt_date" ColumnName="fdt_date" />
+                <ScalarProperty Name="fs_workOrder" ColumnName="fs_workOrder" />
+                <ScalarProperty Name="fc_status" ColumnName="fc_status" />
+                <ScalarProperty Name="fi_id" ColumnName="fi_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cqf_immexTransfer">
+            <EntityTypeMapping TypeName="YETIDM.cqf_immexTransfer">
+              <MappingFragment StoreEntitySet="cqf_immexTransfer">
+                <ScalarProperty Name="fs_file" ColumnName="fs_file" />
+                <ScalarProperty Name="fi_qty" ColumnName="fi_qty" />
+                <ScalarProperty Name="fs_sku" ColumnName="fs_sku" />
+                <ScalarProperty Name="fs_immexNombre" ColumnName="fs_immexNombre" />
+                <ScalarProperty Name="fdt_fecha" ColumnName="fdt_fecha" />
+                <ScalarProperty Name="fi_id" ColumnName="fi_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cqf_mexicanDutys">
+            <EntityTypeMapping TypeName="YETIDM.cqf_mexicanDutys">
+              <MappingFragment StoreEntitySet="cqf_mexicanDutys">
+                <ScalarProperty Name="fi_qty" ColumnName="fi_qty" />
+                <ScalarProperty Name="fs_sku" ColumnName="fs_sku" />
+                <ScalarProperty Name="fdt_fecha" ColumnName="fdt_fecha" />
+                <ScalarProperty Name="fi_id" ColumnName="fi_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cqf_scrap">
+            <EntityTypeMapping TypeName="YETIDM.cqf_scrap">
+              <MappingFragment StoreEntitySet="cqf_scrap">
+                <ScalarProperty Name="fs_file" ColumnName="fs_file" />
+                <ScalarProperty Name="fi_qty" ColumnName="fi_qty" />
+                <ScalarProperty Name="fs_sku" ColumnName="fs_sku" />
+                <ScalarProperty Name="fs_pedimento" ColumnName="fs_pedimento" />
+                <ScalarProperty Name="fdt_fecha" ColumnName="fdt_fecha" />
+                <ScalarProperty Name="fi_id" ColumnName="fi_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="cqc_usuarios">
             <EntityTypeMapping TypeName="YETIDM.cqc_usuarios">
               <MappingFragment StoreEntitySet="cqc_usuarios">
+                <ScalarProperty Name="cb_balance" ColumnName="cb_balance" />
+                <ScalarProperty Name="cb_scrap" ColumnName="cb_scrap" />
                 <ScalarProperty Name="cb_ups" ColumnName="cb_ups" />
                 <ScalarProperty Name="cb_workOrder" ColumnName="cb_workOrder" />
                 <ScalarProperty Name="cb_masters" ColumnName="cb_masters" />
                 <ScalarProperty Name="cb_northBount" ColumnName="cb_northBount" />
                 <ScalarProperty Name="cb_southBound" ColumnName="cb_southBound" />
+                <ScalarProperty Name="cb_active" ColumnName="cb_active" />
                 <ScalarProperty Name="cs_modificacion" ColumnName="cs_modificacion" />
                 <ScalarProperty Name="cs_alta" ColumnName="cs_alta" />
                 <ScalarProperty Name="cs_contrasena" ColumnName="cs_contrasena" />
                 <ScalarProperty Name="cs_correo" ColumnName="cs_correo" />
                 <ScalarProperty Name="cs_nombre" ColumnName="cs_nombre" />
                 <ScalarProperty Name="ci_id" ColumnName="ci_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cqf_WorkOrderMaster">
+            <EntityTypeMapping TypeName="YETIDM.cqf_WorkOrderMaster">
+              <MappingFragment StoreEntitySet="cqf_WorkOrderMaster">
+                <ScalarProperty Name="fs_thirdCityState" ColumnName="fs_thirdCityState" />
+                <ScalarProperty Name="fs_thirdStreetAddress" ColumnName="fs_thirdStreetAddress" />
+                <ScalarProperty Name="fs_thirdPartCompanyName" ColumnName="fs_thirdPartCompanyName" />
+                <ScalarProperty Name="fs_receiversThirdPartyUpsAcct" ColumnName="fs_receiversThirdPartyUpsAcct" />
+                <ScalarProperty Name="fb_billCreditCard" ColumnName="fb_billCreditCard" />
+                <ScalarProperty Name="fb_billThirdParty" ColumnName="fb_billThirdParty" />
+                <ScalarProperty Name="fb_billReceiver" ColumnName="fb_billReceiver" />
+                <ScalarProperty Name="fb_billShipperAccountNumber" ColumnName="fb_billShipperAccountNumber" />
+                <ScalarProperty Name="fd_totalCharges" ColumnName="fd_totalCharges" />
+                <ScalarProperty Name="fd_aditionalHandlingCharge" ColumnName="fd_aditionalHandlingCharge" />
+                <ScalarProperty Name="fd_amount" ColumnName="fd_amount" />
+                <ScalarProperty Name="fd_declareValueCarriage" ColumnName="fd_declareValueCarriage" />
+                <ScalarProperty Name="fd_groundSdpShippingCharges" ColumnName="fd_groundSdpShippingCharges" />
+                <ScalarProperty Name="fs_shipperRelease" ColumnName="fs_shipperRelease" />
+                <ScalarProperty Name="fd_largePackage" ColumnName="fd_largePackage" />
+                <ScalarProperty Name="fd_dimentionalWeight" ColumnName="fd_dimentionalWeight" />
+                <ScalarProperty Name="fd_weightLbs" ColumnName="fd_weightLbs" />
+                <ScalarProperty Name="fs_deliverCityState" ColumnName="fs_deliverCityState" />
+                <ScalarProperty Name="fs_deliverStreetAddress" ColumnName="fs_deliverStreetAddress" />
+                <ScalarProperty Name="fs_deliverCompany" ColumnName="fs_deliverCompany" />
+                <ScalarProperty Name="fs_deliverPhone" ColumnName="fs_deliverPhone" />
+                <ScalarProperty Name="fs_deliverToName" ColumnName="fs_deliverToName" />
+                <ScalarProperty Name="fs_cityState" ColumnName="fs_cityState" />
+                <ScalarProperty Name="fs_streetAddress" ColumnName="fs_streetAddress" />
+                <ScalarProperty Name="fs_company" ColumnName="fs_company" />
+                <ScalarProperty Name="fs_telephone" ColumnName="fs_telephone" />
+                <ScalarProperty Name="fs_name" ColumnName="fs_name" />
+                <ScalarProperty Name="fs_reference" ColumnName="fs_reference" />
+                <ScalarProperty Name="fs_shipperUpsAccount" ColumnName="fs_shipperUpsAccount" />
+                <ScalarProperty Name="fdt_date" ColumnName="fdt_date" />
+                <ScalarProperty Name="fs_workOrder" ColumnName="fs_workOrder" />
+                <ScalarProperty Name="fc_status" ColumnName="fc_status" />
+                <ScalarProperty Name="fi_id" ColumnName="fi_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

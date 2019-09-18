@@ -87,11 +87,42 @@
         <div class="col-sm-12">    
             <telerik:RadGrid runat="server" ID="rgSouthBound" Skin="MetroTouch" AutoGenerateColumns="true"></telerik:RadGrid>
             <br />
-            <asp:LinkButton ID="lnkInsertar" runat="server" OnClick="lnkInsertar_Click" CssClass="btn bg-success"  ForeColor="White">Finish</asp:LinkButton>
+            
          </div>
     </div>
  
-    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+      <div class="row" id="gridWO" visible="false">
+        <div class="col-sm-12">
+            <telerik:RadGrid ID="rgProductionOrder" ClientSettings-Scrolling-AllowScroll="true" Height="270px" runat="server" AutoGenerateColumns="false" ClientSettings-Scrolling-UseStaticHeaders="true" Skin="Metro">
+                <MasterTableView>
+                    <Columns>
+                         <telerik:GridBoundColumn DataField="fs_partNumber" HeaderText="Part#" >
+						</telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="fs_description" HeaderText="Description" >
+						</telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="fs_scheduleHsCode" HeaderText="HS Code" >
+						</telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="fs_coo" HeaderText="COO" >
+						</telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="fi_qty" HeaderText="Qty" >
+						</telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="fd_totalWeightKgs" HeaderText="Tot Weight Kgs" >
+						</telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="fd_totalWeightLbs" HeaderText="Tot Weight Lbs" >
+						</telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="fd_unitPrice" HeaderText="Unit Price" >
+						</telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="fd_exitPrice" HeaderText="Exit Price" >
+						</telerik:GridBoundColumn>
+                    </Columns>
+                </MasterTableView>
+            </telerik:RadGrid>
+        </div>
+        <br />
+        <div class="col-sm-12">
+            <asp:LinkButton ID="lnkInsertar" runat="server" OnClick="lnkInsertar_Click" CssClass="btn btn-success"  ForeColor="White" style="float:right;">Finish</asp:LinkButton>
+        </div>
+    </div>
      
        <script type="text/javascript">
         function openModal() {

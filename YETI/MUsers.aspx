@@ -42,14 +42,19 @@
 							SortExpression="cs_correo" UniqueName="cs_correo" 
 							AllowFiltering="false">
 						</telerik:GridBoundColumn>
+                        <telerik:GridBoundColumn DataField="cb_active" 
+							FilterControlAltText="Filter cb_active column" HeaderText="Active" 
+							SortExpression="cb_active" UniqueName="cb_active" 
+							AllowFiltering="false" >
+						</telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="cb_southBound" DataType="System.Boolean"
 							FilterControlAltText="Filter cb_southBound column" HeaderText="SouthBound Perm." 
 							SortExpression="cb_southBound" UniqueName="cb_southBound" 
 							AllowFiltering="false">
 						</telerik:GridBoundColumn>
-                        <telerik:GridBoundColumn DataField="cb_northBound" DataType="System.Boolean"
-							FilterControlAltText="Filter cb_northBound column" HeaderText="NorthBound Perm." 
-							SortExpression="cb_northBound" UniqueName="cb_northBound" 
+                        <telerik:GridBoundColumn DataField="cb_northBount" DataType="System.Boolean"
+							FilterControlAltText="Filter cb_northBount column" HeaderText="NorthBound Perm." 
+							SortExpression="cb_northBount" UniqueName="cb_northBount" 
 							AllowFiltering="false">
 						</telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="cb_masters" DataType="System.Boolean"
@@ -62,11 +67,25 @@
 							SortExpression="cb_workOrder" UniqueName="cb_workOrder" 
 							AllowFiltering="false">
 						</telerik:GridBoundColumn>
-                        <telerik:GridBoundColumn DataField="cb_ups" DataType="System.Boolean"
+                        <telerik:GridBoundColumn DataField="cb_scrap" DataType="System.Boolean"
+							FilterControlAltText="Filter cb_scrap column" HeaderText="Srap Perm." 
+							SortExpression="cb_scrap" UniqueName="cb_scrap" 
+							AllowFiltering="false">
+						</telerik:GridBoundColumn>  <telerik:GridBoundColumn DataField="cb_balance" DataType="System.Boolean"
+							FilterControlAltText="Filter cb_balance column" HeaderText="Balance Perm." 
+							SortExpression="cb_balance" UniqueName="cb_balance" 
+							AllowFiltering="false">
+						</telerik:GridBoundColumn>  <telerik:GridBoundColumn DataField="cb_ups" DataType="System.Boolean"
 							FilterControlAltText="Filter cb_ups column" HeaderText="UPS Perm." 
 							SortExpression="cb_ups" UniqueName="cb_ups" 
 							AllowFiltering="false">
-						</telerik:GridBoundColumn>                        
+						</telerik:GridBoundColumn>    
+                        <telerik:GridTemplateColumn>
+                         <ItemTemplate>
+                            <asp:LinkButton runat="server" ID="btnEdit" OnClick="btnEdit_Click" CssClass="btn btn-primary btn-sm" Text="Edit"
+                                CommandArgument='<%# Eval("ci_id") %>'></asp:LinkButton>
+                         </ItemTemplate>                         
+                    </telerik:GridTemplateColumn>                    
 						<%--<telerik:GridButtonColumn HeaderStyle-HorizontalAlign="Center" ButtonType="ImageButton" ImageUrl="~/img/ic_view.png" 
 							CommandName="Seguimiento" Text="Seguimiento" UniqueName="Seguimiento"></telerik:GridButtonColumn>--%>
 					</Columns>				
@@ -80,7 +99,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="addModal-label">Add SKU #</h4>
+                    <h4 class="modal-title" id="addModal-label">Add User</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
@@ -123,12 +142,92 @@
 									<td>UPS</td>
 									<td class="text-center"><asp:CheckBox runat="server" ID="chkUps" CssClass="form-check-input"/></td>
 								</tr>
+                                 <tr>
+									<td>Scrap</td>
+									<td class="text-center"><asp:CheckBox runat="server" ID="chkScrap" CssClass="form-check-input"/></td>
+								</tr>
+                                 <tr>
+									<td>Balance</td>
+									<td class="text-center"><asp:CheckBox runat="server" ID="chkBalance" CssClass="form-check-input"/></td>
+								</tr>
 							</tbody>
 						</table>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                     <asp:LinkButton runat="server" ID="add" OnClick="add_Click" CssClass="btn btn-primary" Text="Add"></asp:LinkButton>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function openModal() {
+            $('#EditModal').modal('show');
+        }
+
+    </script>
+
+     <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="addModal-label">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="EditModal-label">Edit User</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6 col-sm-12">
+                            <label class="col-form-label"><b>Name:</b></label>
+							<asp:TextBox runat="server" CssClass="form-control"  ID="txtNameE"/>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-sm-12">
+                            <label class="col-form-label"><b>Email:</b></label>
+							<asp:TextBox runat="server" CssClass="form-control"  ID="txtMailE"/>
+                        </div>
+                    </div>
+                    <br />
+                    <table class="table table-bordered table-responsive-lg table-sm" >
+							<thead >
+								<tr class="text-light" style="background-color:#424242">
+									<th>Module</th>
+									<th class="text-center">Allow</th>                                        
+								</tr>
+							</thead>                                
+							<tbody>
+								<tr>
+									<td>SouthBound</td>
+									<td class="text-center"><asp:CheckBox runat="server" ID="chk_sb" CssClass="form-check-input"/></td>
+								</tr>
+                                <tr>
+									<td>NorthBound</td>
+									<td class="text-center"><asp:CheckBox runat="server" ID="chk_nb" CssClass="form-check-input"/></td>
+								</tr>
+                                <tr>
+									<td>Masters</td>
+									<td class="text-center"><asp:CheckBox runat="server" ID="chk_ms" CssClass="form-check-input"/></td>
+								</tr>
+                                <tr>
+									<td>Work Order</td>
+									<td class="text-center"><asp:CheckBox runat="server" ID="chk_wo" CssClass="form-check-input"/></td>
+								</tr>
+                                <tr>
+									<td>UPS</td>
+									<td class="text-center"><asp:CheckBox runat="server" ID="chk_ups" CssClass="form-check-input"/></td>
+								</tr>
+                                <tr>
+									<td>Scrap</td>
+									<td class="text-center"><asp:CheckBox runat="server" ID="chk_scrap" CssClass="form-check-input"/></td>
+								</tr>
+                                <tr>
+									<td>Balance</td>
+									<td class="text-center"><asp:CheckBox runat="server" ID="chk_balance" CssClass="form-check-input"/></td>
+								</tr>
+							</tbody>
+						</table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <asp:LinkButton runat="server" ID="btnUpdate" OnClick="update_Click"  CssClass="btn btn-primary" Text="Update"></asp:LinkButton>
                 </div>
             </div>
         </div>

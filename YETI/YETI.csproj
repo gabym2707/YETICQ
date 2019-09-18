@@ -147,6 +147,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Balance.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Inicio.aspx" />
     <Content Include="Login.aspx" />
@@ -156,11 +157,21 @@
     <Content Include="MShippers.aspx" />
     <Content Include="MShipsTo.aspx" />
     <Content Include="MUsers.aspx" />
+    <Content Include="NorthBoundList.aspx" />
     <Content Include="NorthBoundMails.aspx" />
     <Content Include="ScanPaint.aspx" />
+    <Content Include="ScrapMDList.aspx" />
+    <Content Include="ScrapMD.aspx" />
+    <Content Include="ScrapIT.aspx" />
+    <Content Include="ScrapSP.aspx" />
+    <Content Include="ScrapITList.aspx" />
+    <Content Include="ScrapSPList.aspx" />
+    <Content Include="WorkOrderList.aspx" />
     <Content Include="SouthBoundList.aspx" />
+    <Content Include="Users.aspx" />
     <Content Include="SouthBoundMails.aspx" />
     <Content Include="Web.config" />
+    <Content Include="WorkOrder.aspx" />
     <Content Include="YETIDM.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>YETIDM.edmx</DependentUpon>
@@ -173,6 +184,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Balance.aspx.cs">
+      <DependentUpon>Balance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Balance.aspx.designer.cs">
+      <DependentUpon>Balance.aspx</DependentUpon>
+    </Compile>
     <Compile Include="cqc_exports.cs">
       <DependentUpon>YETIDM.tt</DependentUpon>
     </Compile>
@@ -191,15 +209,42 @@
     <Compile Include="cqc_usuarios.cs">
       <DependentUpon>YETIDM.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataSetMSB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetMSB.xsd</DependentUpon>
+    <Compile Include="cqf_confirmationsNB.cs">
+      <DependentUpon>YETIDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cqf_confirmationsSB.cs">
+      <DependentUpon>YETIDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cqf_confirmationsWO.cs">
+      <DependentUpon>YETIDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cqf_immexTransfer.cs">
+      <DependentUpon>YETIDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cqf_logActividad.cs">
+      <DependentUpon>YETIDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cqf_mexicanDutys.cs">
+      <DependentUpon>YETIDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cqf_scrap.cs">
+      <DependentUpon>YETIDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cqf_workOrder.cs">
+      <DependentUpon>YETIDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cqf_WorkOrderMaster.cs">
+      <DependentUpon>YETIDM.tt</DependentUpon>
     </Compile>
     <Compile Include="DataSetSB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetSB.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetWO.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetWO.xsd</DependentUpon>
     </Compile>
     <Compile Include="Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
@@ -264,6 +309,13 @@
       <DependentUpon>YETIDM.tt</DependentUpon>
     </Compile>
     <Compile Include="NorthBoundHelper.cs" />
+    <Compile Include="NorthBoundList.aspx.cs">
+      <DependentUpon>NorthBoundList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NorthBoundList.aspx.designer.cs">
+      <DependentUpon>NorthBoundList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NorthBoundMail.cs">
       <DependentUpon>YETIDM.tt</DependentUpon>
     </Compile>
@@ -275,6 +327,18 @@
       <DependentUpon>NorthBoundMails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\RWO.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RWO.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RNB1.cs">
+      <DependentUpon>RNB.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Include="Reports\RSB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -301,16 +365,60 @@
     <Compile Include="ProductionOrder.aspx.designer.cs">
       <DependentUpon>ProductionOrder.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ScrapMDList.aspx.cs">
+      <DependentUpon>ScrapMDList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ScrapMDList.aspx.designer.cs">
+      <DependentUpon>ScrapMDList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ScrapMD.aspx.cs">
+      <DependentUpon>ScrapMD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ScrapMD.aspx.designer.cs">
+      <DependentUpon>ScrapMD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ScrapIT.aspx.cs">
+      <DependentUpon>ScrapIT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ScrapIT.aspx.designer.cs">
+      <DependentUpon>ScrapIT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ScrapSP.aspx.cs">
+      <DependentUpon>ScrapSP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ScrapSP.aspx.designer.cs">
+      <DependentUpon>ScrapSP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ScrapITList.aspx.cs">
+      <DependentUpon>ScrapITList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ScrapITList.aspx.designer.cs">
+      <DependentUpon>ScrapITList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad.cs" />
     <Compile Include="SouthBound.cs">
       <DependentUpon>YETIDM.tt</DependentUpon>
     </Compile>
-    <Compile Include="Southbound1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Southbound.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="SouthBoundHelper.cs" />
+    <Compile Include="ScrapSPList.aspx.cs">
+      <DependentUpon>ScrapSPList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ScrapSPList.aspx.designer.cs">
+      <DependentUpon>ScrapSPList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkOrderList.aspx.cs">
+      <DependentUpon>WorkOrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WorkOrderList.aspx.designer.cs">
+      <DependentUpon>WorkOrderList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SouthBoundList.aspx.cs">
       <DependentUpon>SouthBoundList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -321,12 +429,26 @@
     <Compile Include="SouthBoundMail.cs">
       <DependentUpon>YETIDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SouthBoundMails.aspx.cs">
       <DependentUpon>SouthBoundMails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SouthBoundMails.aspx.designer.cs">
       <DependentUpon>SouthBoundMails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkOrder.aspx.cs">
+      <DependentUpon>WorkOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WorkOrder.aspx.designer.cs">
+      <DependentUpon>WorkOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Yeti.Master.cs">
       <DependentUpon>Yeti.Master</DependentUpon>
@@ -359,17 +481,6 @@
     <Content Include="DataSetSB.xsc">
       <DependentUpon>DataSetSB.xsd</DependentUpon>
     </Content>
-    <Content Include="DataSetMSB.xsc">
-      <DependentUpon>DataSetMSB.xsd</DependentUpon>
-    </Content>
-    <None Include="DataSetMSB.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetMSB.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="DataSetMSB.xss">
-      <DependentUpon>DataSetMSB.xsd</DependentUpon>
-    </Content>
     <None Include="DataSetSB.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -377,6 +488,17 @@
     </None>
     <Content Include="DataSetSB.xss">
       <DependentUpon>DataSetSB.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSetWO.xsc">
+      <DependentUpon>DataSetWO.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSetWO.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetWO.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSetWO.xss">
+      <DependentUpon>DataSetWO.xsd</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -399,10 +521,21 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Certificates\" />
+    <Folder Include="NewFolder1\" />
     <Folder Include="NorthBound\" />
     <Folder Include="SouthBound\" />
+    <Folder Include="WorkOrders\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\RWO.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RWO.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RNB.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RNB1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\RSB.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RSB.cs</LastGenOutput>
@@ -410,10 +543,6 @@
     <EmbeddedResource Include="Reports\RSouthbound.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RSouthbound.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Southbound.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Southbound1.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

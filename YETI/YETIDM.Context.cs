@@ -29,12 +29,21 @@ namespace YETI
         public virtual DbSet<cqc_imports> cqc_imports { get; set; }
         public virtual DbSet<cqc_shippers> cqc_shippers { get; set; }
         public virtual DbSet<cqc_shipto> cqc_shipto { get; set; }
-        public virtual DbSet<NorthBound> NorthBounds { get; set; }
         public virtual DbSet<cqc_skus> cqc_skus { get; set; }
         public virtual DbSet<SouthBound> SouthBounds { get; set; }
         public virtual DbSet<MasterInvoiceSB> MasterInvoiceSBs { get; set; }
         public virtual DbSet<NorthBoundMail> NorthBoundMails { get; set; }
         public virtual DbSet<SouthBoundMail> SouthBoundMails { get; set; }
+        public virtual DbSet<cqf_logActividad> cqf_logActividad { get; set; }
+        public virtual DbSet<NorthBound> NorthBounds { get; set; }
+        public virtual DbSet<cqf_confirmationsNB> cqf_confirmationsNB { get; set; }
+        public virtual DbSet<cqf_confirmationsSB> cqf_confirmationsSB { get; set; }
+        public virtual DbSet<cqf_confirmationsWO> cqf_confirmationsWO { get; set; }
+        public virtual DbSet<cqf_workOrder> cqf_workOrder { get; set; }
+        public virtual DbSet<cqf_immexTransfer> cqf_immexTransfer { get; set; }
+        public virtual DbSet<cqf_mexicanDutys> cqf_mexicanDutys { get; set; }
+        public virtual DbSet<cqf_scrap> cqf_scrap { get; set; }
         public virtual DbSet<cqc_usuarios> cqc_usuarios { get; set; }
+        public virtual DbSet<cqf_WorkOrderMaster> cqf_WorkOrderMaster { get; set; }
     }
 }

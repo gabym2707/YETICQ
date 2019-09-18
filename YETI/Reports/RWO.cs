@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YETI {
+namespace YETI.Reports {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace YETI {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Southbound : ReportClass {
+    public class RWO : ReportClass {
         
-        public Southbound() {
+        public RWO() {
         }
         
         public override string ResourceName {
             get {
-                return "Southbound.rpt";
+                return "RWO.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace YETI {
         
         public override string FullResourceName {
             get {
-                return "YETI.Southbound.rpt";
+                return "YETI.Reports.RWO.rpt";
             }
             set {
                 // Do nothing
@@ -87,20 +87,12 @@ namespace YETI {
                 return this.ReportDefinition.Sections[4];
             }
         }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_Exporter {
-            get {
-                return this.DataDefinition.ParameterFields[0];
-            }
-        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedSouthbound : Component, ICachedReport {
+    public class CachedRWO : Component, ICachedReport {
         
-        public CachedSouthbound() {
+        public CachedRWO() {
         }
         
         [Browsable(false)]
@@ -137,7 +129,7 @@ namespace YETI {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Southbound rpt = new Southbound();
+            RWO rpt = new RWO();
             rpt.Site = this.Site;
             return rpt;
         }

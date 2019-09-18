@@ -18,12 +18,15 @@ namespace YETI
         public string cs_nombre { get; set; }
         public string cs_correo { get; set; }
         public string cs_contrasena { get; set; }
-        public Nullable<System.DateTime> cs_alta { get; set; }
-        public Nullable<System.DateTime> cs_modificacion { get; set; }
-        public Nullable<bool> cb_southBound { get; set; }
-        public Nullable<bool> cb_northBount { get; set; }
-        public Nullable<bool> cb_masters { get; set; }
-        public Nullable<bool> cb_workOrder { get; set; }
-        public Nullable<bool> cb_ups { get; set; }
+        public DateTime cs_alta { get; set; }
+        public DateTime cs_modificacion { get; set; }
+        public bool cb_active { get; set; }
+        public bool cb_southBound { get; set; }
+        public bool cb_northBount { get; set; }
+        public bool cb_masters { get; set; }
+        public bool cb_workOrder { get; set; }
+        public bool cb_ups { get; set; }
+        public bool cb_scrap { get; set; }
+        public bool cb_balance { get; set; }
     }
 }

@@ -16,37 +16,37 @@ namespace YETI
     {
         public int fi_id { get; set; }
         public string fc_status { get; set; }
-        public Nullable<System.DateTime> fdt_invoiceDate { get; set; }
+        public DateTime fdt_invoiceDate { get; set; }
         public string fs_invoiceNumber { get; set; }
         public string fs_trailerNumber { get; set; }
         public string fs_sealNumber { get; set; }
-        public Nullable<int> fi_exportOfRecord { get; set; }
+        public int fi_exportOfRecord { get; set; }
         public string fs_exportOfRecord { get; set; }
-        public Nullable<int> fi_importer { get; set; }
+        public int fi_importer { get; set; }
         public string fs_importer { get; set; }
-        public Nullable<int> fi_shipper { get; set; }
+        public int fi_shipper { get; set; }
         public string fs_shipper { get; set; }
-        public Nullable<int> fi_shipTo { get; set; }
+        public int fi_shipTo { get; set; }
         public string fs_shipTo { get; set; }
         public string fs_incoterm { get; set; }
-        public Nullable<System.DateTime> fdt_shipDate { get; set; }
+        public DateTime fdt_shipDate { get; set; }
         public string fs_shipVia { get; set; }
         public string fs_SKU { get; set; }
         public string fs_descYeti { get; set; }
         public string fs_hsCodeYeti { get; set; }
         public string fs_COOYeti { get; set; }
-        public Nullable<int> fi_qtyYeti { get; set; }
-        public Nullable<decimal> fd_unitPriceYeti { get; set; }
-        public Nullable<decimal> fd_extPriceYeti { get; set; }
+        public int fi_qtyYeti { get; set; }
+        public decimal fd_unitPriceYeti { get; set; }
+        public decimal fd_extPriceYeti { get; set; }
         public string fs_descSP { get; set; }
         public string fs_hsCodeSP { get; set; }
         public string fs_COOSP { get; set; }
-        public Nullable<decimal> fd_unitPriceSP { get; set; }
-        public Nullable<decimal> fd_extPriceSP { get; set; }
+        public decimal fd_unitPriceSP { get; set; }
+        public decimal fd_extPriceSP { get; set; }
         public string fs_WONumber { get; set; }
         public string fs_upsTracking { get; set; }
-        public Nullable<decimal> fd_totalEnteredValue { get; set; }
-        public Nullable<double> fd_totalWeight { get; set; }
-        public Nullable<decimal> fd_totalAmount { get; set; }
+        public decimal fd_totalEnteredValue { get; set; }
+        public double fd_totalWeight { get; set; }
+        public decimal fd_totalAmount { get; set; }
     }
 }
